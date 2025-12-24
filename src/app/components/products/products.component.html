@@ -1,0 +1,60 @@
+<section class="bg-background py-16 lg:py-24">
+  <div class="container mx-auto px-8 lg:px-32">
+    <!-- Section Title -->
+    <h2 class="text-3xl font-rubik font-medium text-white mb-12 tracking-tight">
+      Pickles
+    </h2>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
+      @for (product of products; track product.id) {
+        <div class="flex flex-col">
+          <!-- Product Image -->
+          <div class="relative rounded-[20px] bg-[#D9D9D9] h-[204px] mb-6 overflow-hidden">
+            <img 
+              [src]="product.image" 
+              [alt]="product.name" 
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <img 
+              [src]="product.overlayImage" 
+              [alt]="product.name" 
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[188px] h-[186px] object-contain"
+            />
+            
+            <!-- Veg Indicator -->
+            @if (product.isVeg) {
+              <div class="absolute top-5 right-5 w-[18px] h-[18px]">
+                <div class="w-full h-full rounded-sm border border-[#4DB724] relative">
+                  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full bg-[#4DB724]"></div>
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Product Info -->
+          <div class="text-center">
+            <h3 class="text-xl font-montserrat font-medium text-white mb-2 tracking-tight">
+              {{ product.name }}
+            </h3>
+            <p class="text-[22px] font-montserrat font-bold text-pkills-yellow mb-6 tracking-tight">
+              {{ product.price }}
+            </p>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button class="w-full h-[60px] rounded-[10px] border-2 border-pkills-red text-pkills-red font-montserrat text-xl font-medium tracking-tight hover:bg-pkills-red hover:text-white transition-colors">
+            Add to Cart
+          </button>
+        </div>
+      }
+    </div>
+
+    <!-- See All Products Button -->
+    <div class="flex justify-center">
+      <button class="px-8 py-4 rounded-lg border border-pkills-bright-red text-pkills-bright-red font-rubik text-lg font-semibold tracking-tight hover:bg-pkills-bright-red hover:text-white transition-colors">
+        See All Products
+      </button>
+    </div>
+  </div>
+</section>
