@@ -1,0 +1,52 @@
+<header class="flex items-center justify-between px-8 lg:px-32 py-4 h-[120px] bg-black/50 relative z-50">
+  <!-- Logo -->
+  <div class="flex items-center">
+    <img 
+      src="https://api.builder.io/api/v1/image/assets/TEMP/efe32c61082fe4a541e2d4d5695df28bb4d3714f?width=1316" 
+      alt="PKILLS Logo" 
+      class="h-16 lg:h-20 w-auto"
+    />
+  </div>
+
+  <!-- Desktop Navigation - Hidden on mobile -->
+  <nav class="hidden lg:flex items-center gap-8">
+    <a href="#" class="text-white font-montserrat text-sm font-semibold hover:text-pkills-yellow transition-colors">Home</a>
+    <a href="#" class="text-white font-montserrat text-sm font-semibold hover:text-pkills-yellow transition-colors">Shop</a>
+    <a href="#about" class="text-white font-montserrat text-sm font-semibold hover:text-pkills-yellow transition-colors">About us</a>
+    <a href="#" class="text-white font-montserrat text-sm font-semibold hover:text-pkills-yellow transition-colors">Contact Us</a>
+  </nav>
+
+  <!-- Right Side Actions -->
+  <div class="flex items-center gap-4 lg:gap-8">
+    <!-- Currency Selector - Hidden on mobile -->
+    <button class="hidden md:flex items-center justify-center gap-2">
+      <img 
+        src="https://api.builder.io/api/v1/image/assets/TEMP/6aaa24d65be2dc7217a6c1c21b3bd559582f595e?width=40" 
+        alt="US Flag" 
+        class="w-5 h-5"
+      />
+      <span class="text-white font-montserrat text-sm font-semibold">USA $</span>
+      <svg class="w-3 h-2 stroke-white" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.75 0.750027L5.75 4.75003L10.75 0.750027" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Cart -->
+    <button class="flex items-center gap-2">
+      <div class="relative">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 0C1.10218 0 0.720644 0.158035 0.43934 0.439339C0.158035 0.720644 0 1.10218 0 1.5C0 1.89782 0.158035 2.27936 0.43934 2.56066C0.720644 2.84196 1.10218 3 1.5 3H3.33L3.7875 4.833C3.79205 4.85411 3.79704 4.87511 3.8025 4.896L5.8395 13.041L4.5 14.379C2.61 16.269 3.948 19.5 6.621 19.5H19.5C19.8978 19.5 20.2794 19.342 20.5607 19.0607C20.842 18.7794 21 18.3978 21 18C21 17.6022 20.842 17.2206 20.5607 16.9393C20.2794 16.658 19.8978 16.5 19.5 16.5H6.621L8.121 15H18C18.2786 14.9999 18.5514 14.9222 18.7883 14.7757C19.0251 14.6292 19.2165 14.4196 19.341 14.1705L23.841 5.1705C23.9553 4.94187 24.0092 4.68783 23.9978 4.43252C23.9862 4.17718 23.9098 3.92903 23.7753 3.71159C23.6409 3.49416 23.4533 3.31466 23.2301 3.19011C23.0069 3.06558 22.7556 3.00014 22.5 3H6.42L5.955 1.1355C5.87374 0.811129 5.68643 0.523214 5.42282 0.317483C5.15919 0.111753 4.83439 8.79065e-06 4.5 0H1.5ZM21 23.25C21 23.8467 20.763 24.4191 20.3411 24.8411C19.9191 25.263 19.3467 25.5 18.75 25.5C18.1533 25.5 17.5809 25.263 17.159 24.8411C16.737 24.4191 16.5 23.8467 16.5 23.25C16.5 22.6533 16.737 22.0809 17.159 21.659C17.5809 21.237 18.1533 21 18.75 21C19.3467 21 19.9191 21.237 20.3411 21.659C20.763 22.0809 21 22.6533 21 23.25ZM6.75 25.5C7.34674 25.5 7.91903 25.263 8.34099 24.8411C8.76295 24.4191 9 23.8467 9 23.25C9 22.6533 8.76295 22.0809 8.34099 21.659C7.91903 21.237 7.34674 21 6.75 21C6.15326 21 5.58097 21.237 5.15901 21.659C4.73705 22.0809 4.5 22.6533 4.5 23.25C4.5 23.8467 4.73705 24.4191 5.15901 24.8411C5.58097 25.263 6.15326 25.5 6.75 25.5Z" fill="white"/>
+        </svg>
+        <div class="absolute -top-2 -right-2 bg-[#EE4536] rounded-full w-4 h-4 flex items-center justify-center">
+          <span class="text-[#FFEFEB] font-questrial text-xs">{{ cartCount }}</span>
+        </div>
+      </div>
+      <span class="hidden md:inline text-white font-montserrat text-sm font-semibold">Cart</span>
+    </button>
+
+    <!-- Sign In Button -->
+    <button class="px-4 lg:px-6 py-2 lg:py-3 border border-white rounded text-white font-rubik text-sm font-semibold hover:bg-white hover:text-background transition-colors">
+      Sign in
+    </button>
+  </div>
+</header>
