@@ -2,7 +2,21 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}", "./src/**/*.html", "./src/**/*.ts"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: '#0B0000',
+        'pkills-yellow': '#FEC51C',
+        'pkills-red': '#AF0A09',
+        'pkills-dark-red': '#820A09',
+        'pkills-bright-red': '#D51311',
+        'pkills-dark-gray': '#231A1A',
+      },
+      fontFamily: {
+        rubik: ['Rubik', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        questrial: ['Questrial', 'sans-serif'],
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
