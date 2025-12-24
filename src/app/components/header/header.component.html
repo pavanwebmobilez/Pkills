@@ -3,21 +3,27 @@
 >
   <!-- Logo -->
   <div class="flex items-center">
-    <img
-      src="https://api.builder.io/api/v1/image/assets/TEMP/36f720abb35445f11e070938256a90b3d7f28f17?width=370"
-      alt="PKILLS Logo"
-      class="h-[84.718px] w-[185.167px]"
-    />
+    <a routerLink="/">
+      <img
+        src="https://api.builder.io/api/v1/image/assets/TEMP/36f720abb35445f11e070938256a90b3d7f28f17?width=370"
+        alt="PKILLS Logo"
+        class="h-[84.718px] w-[185.167px]"
+      />
+    </a>
   </div>
 
   <!-- Desktop Navigation - Hidden on mobile -->
   <nav class="hidden lg:flex items-center gap-[62px] relative">
     <a
-      href="#"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
       class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      #homeLink="routerLinkActive"
     >
       Home
       <span
+        *ngIf="homeLink.isActive"
         class="absolute left-0 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
       ></span>
     </a>
@@ -27,7 +33,8 @@
       >Shop</a
     >
     <a
-      href="#about"
+      routerLink="/about"
+      routerLinkActive="text-white"
       class="text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
       >About us</a
     >
