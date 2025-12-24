@@ -9,88 +9,191 @@
       </h2>
     </div>
 
-    <!-- Testimonials Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-      @for (testimonial of testimonials; track testimonial.id) {
-        <div
-          [class]="
-            'p-5 rounded-[20px] bg-pkills-dark-gray flex flex-col gap-5 ' +
-            (testimonial.featured ? 'border border-pkills-red' : '')
-          "
-        >
-          <!-- Quote Icon -->
-          <svg
-            class="w-7 h-5 fill-[#E5E5E5]"
-            viewBox="0 0 28 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9.89174 0L11.4074 2.57576C10.5565 3.68687 9.75879 4.92424 9.01425 6.28788C8.32289 7.65152 7.92403 9.06566 7.81766 10.5303L12.2051 11.2879V20H0V13.7879C0 10.202 0.877493 7.32323 2.63248 5.15152C4.44065 2.92929 6.8604 1.21212 9.89174 0ZM25.6866 0L27.2023 2.57576C26.3514 3.68687 25.5537 4.92424 24.8091 6.28788C24.1178 7.65152 23.7189 9.06566 23.6125 10.5303L28 11.2879V20H15.7949V13.7879C15.7949 10.202 16.6724 7.32323 18.4274 5.15152C20.2355 2.92929 22.6553 1.21212 25.6866 0Z"
-              fill="#E5E5E5"
-            />
-          </svg>
-
-          <!-- Title -->
-          <h3
-            class="text-lg font-montserrat font-medium text-[#EDEDED] leading-relaxed"
-          >
-            {{ testimonial.title }}
-          </h3>
-
-          <!-- Review Text -->
-          <p class="text-base font-montserrat text-[#EDEDED] leading-relaxed">
-            {{ testimonial.review }}
-          </p>
-
-          <!-- Rating -->
+    <!-- Testimonials Carousel -->
+    <div class="relative mb-8">
+      <!-- Testimonials Grid -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 transition-all duration-500 ease-in-out"
+      >
+        @for (testimonial of visibleTestimonials; track testimonial.id) {
           <div
-            class="flex items-center gap-1 px-2 py-1 rounded-2xl border border-[#E5E5E5] w-fit"
+            [class]="
+              'p-5 rounded-[20px] bg-pkills-dark-gray flex flex-col gap-5 transition-all duration-300 ' +
+              (testimonial.featured ? 'border border-pkills-red' : '')
+            "
           >
+            <!-- Quote Icon -->
             <svg
-              class="w-4 h-4"
-              viewBox="0 0 16 16"
+              class="w-7 h-5 fill-[#E5E5E5]"
+              viewBox="0 0 28 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M9.15327 2.33977L10.3266 4.68643C10.4866 5.0131 10.9133 5.32643 11.2733 5.38643L13.3999 5.73977C14.7599 5.96643 15.0799 6.9531 14.0999 7.92643L12.4466 9.57977C12.1666 9.85977 12.0133 10.3998 12.0999 10.7864L12.5733 12.8331C12.9466 14.4531 12.0866 15.0798 10.6533 14.2331L8.65994 13.0531C8.29994 12.8398 7.70661 12.8398 7.33994 13.0531L5.34661 14.2331C3.91994 15.0798 3.05327 14.4464 3.42661 12.8331L3.89994 10.7864C3.98661 10.3998 3.83327 9.85977 3.55327 9.57977L1.89994 7.92643C0.926606 6.9531 1.23994 5.96643 2.59994 5.73977L4.72661 5.38643C5.07994 5.32643 5.50661 5.0131 5.66661 4.68643L6.83994 2.33977C7.47994 1.06643 8.51994 1.06643 9.15327 2.33977Z"
-                fill="#AF0A09"
+                d="M9.89174 0L11.4074 2.57576C10.5565 3.68687 9.75879 4.92424 9.01425 6.28788C8.32289 7.65152 7.92403 9.06566 7.81766 10.5303L12.2051 11.2879V20H0V13.7879C0 10.202 0.877493 7.32323 2.63248 5.15152C4.44065 2.92929 6.8604 1.21212 9.89174 0ZM25.6866 0L27.2023 2.57576C26.3514 3.68687 25.5537 4.92424 24.8091 6.28788C24.1178 7.65152 23.7189 9.06566 23.6125 10.5303L28 11.2879V20H15.7949V13.7879C15.7949 10.202 16.6724 7.32323 18.4274 5.15152C20.2355 2.92929 22.6553 1.21212 25.6866 0Z"
+                fill="#E5E5E5"
               />
             </svg>
-            <span
-              class="text-base font-montserrat font-medium text-[#EDEDED]"
-              >{{ testimonial.rating }}</span
-            >
-          </div>
 
-          <!-- Customer Info -->
-          <div class="flex items-center gap-3">
-            <img
-              [src]="testimonial.avatar"
-              [alt]="testimonial.customerName"
-              class="w-12 h-12 rounded-full object-cover"
-            />
-            <div class="flex flex-col">
-              <span class="text-lg font-montserrat font-medium text-[#EDEDED]">
-                {{ testimonial.customerName }}
-              </span>
-              <span class="text-sm font-montserrat text-[#C5C5C5]">
-                {{ testimonial.customerRole }}
-              </span>
+            <!-- Title -->
+            <h3
+              class="text-lg font-montserrat font-medium text-[#EDEDED] leading-relaxed"
+            >
+              {{ testimonial.title }}
+            </h3>
+
+            <!-- Review Text -->
+            <p
+              class="text-base font-montserrat text-[#EDEDED] leading-relaxed"
+            >
+              {{ testimonial.review }}
+            </p>
+
+            <!-- Rating -->
+            <div
+              class="flex items-center gap-1 px-2 py-1 rounded-2xl border border-[#E5E5E5] w-fit"
+            >
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.15327 2.33977L10.3266 4.68643C10.4866 5.0131 10.9133 5.32643 11.2733 5.38643L13.3999 5.73977C14.7599 5.96643 15.0799 6.9531 14.0999 7.92643L12.4466 9.57977C12.1666 9.85977 12.0133 10.3998 12.0999 10.7864L12.5733 12.8331C12.9466 14.4531 12.0866 15.0798 10.6533 14.2331L8.65994 13.0531C8.29994 12.8398 7.70661 12.8398 7.33994 13.0531L5.34661 14.2331C3.91994 15.0798 3.05327 14.4464 3.42661 12.8331L3.89994 10.7864C3.98661 10.3998 3.83327 9.85977 3.55327 9.57977L1.89994 7.92643C0.926606 6.9531 1.23994 5.96643 2.59994 5.73977L4.72661 5.38643C5.07994 5.32643 5.50661 5.0131 5.66661 4.68643L6.83994 2.33977C7.47994 1.06643 8.51994 1.06643 9.15327 2.33977Z"
+                  fill="#AF0A09"
+                />
+              </svg>
+              <span class="text-base font-montserrat font-medium text-[#EDEDED]"
+                >{{ testimonial.rating }}</span
+              >
+            </div>
+
+            <!-- Customer Info -->
+            <div class="flex items-center gap-3">
+              <img
+                [src]="testimonial.avatar"
+                [alt]="testimonial.customerName"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div class="flex flex-col">
+                <span
+                  class="text-lg font-montserrat font-medium text-[#EDEDED]"
+                >
+                  {{ testimonial.customerName }}
+                </span>
+                <span class="text-sm font-montserrat text-[#C5C5C5]">
+                  {{ testimonial.customerRole }}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      }
+        }
+      </div>
+
+      <!-- Navigation Arrows (Hidden on mobile) -->
+      <button
+        (click)="previousSlide()"
+        class="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors group"
+        aria-label="Previous testimonials"
+      >
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <button
+        (click)="nextSlide()"
+        class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors group"
+        aria-label="Next testimonials"
+      >
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 6L15 12L9 18"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
     </div>
 
     <!-- Slider Dots -->
     <div class="flex justify-center items-center gap-1.5">
-      <div class="w-2 h-2 rounded-full bg-[#E5E5E5]"></div>
-      <div class="w-2 h-2 rounded-full bg-[#E5E5E5]"></div>
-      <div class="w-3 h-3 rounded-full bg-pkills-red"></div>
-      <div class="w-2 h-2 rounded-full bg-[#E5E5E5]"></div>
-      <div class="w-2 h-2 rounded-full bg-[#E5E5E5]"></div>
+      @for (slide of slides; track slide) {
+        <button
+          (click)="goToSlide(slide)"
+          [class]="
+            'rounded-full transition-all duration-300 ' +
+            (currentSlide === slide
+              ? 'w-3 h-3 bg-pkills-red'
+              : 'w-2 h-2 bg-[#E5E5E5] hover:bg-pkills-yellow')
+          "
+          [attr.aria-label]="'Go to slide ' + (slide + 1)"
+        ></button>
+      }
+    </div>
+
+    <!-- Mobile Navigation Buttons -->
+    <div class="flex lg:hidden justify-center gap-4 mt-8">
+      <button
+        (click)="previousSlide()"
+        class="w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors"
+        aria-label="Previous testimonials"
+      >
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <button
+        (click)="nextSlide()"
+        class="w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors"
+        aria-label="Next testimonials"
+      >
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 6L15 12L9 18"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </section>
