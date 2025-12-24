@@ -13,4 +13,9 @@ export const routes: Routes = [
         (m) => m.AboutUsComponent
       ),
   },
+  {
+    path: "shop",
+    loadComponent: () =>
+      import("./pages/shop/shop.component").then((m) => m.ShopComponent),
+  },
 ];
