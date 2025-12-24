@@ -24,26 +24,45 @@
       Home
       <span
         *ngIf="homeLink.isActive"
-        class="absolute left-0 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
+        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
       ></span>
     </a>
     <a
       routerLink="/shop"
-      routerLinkActive="text-white"
-      class="text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
-      >Shop</a
+      routerLinkActive="active"
+      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      #shopLink="routerLinkActive"
     >
+      Shop
+      <span
+        *ngIf="shopLink.isActive"
+        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
+      ></span>
+    </a>
     <a
       routerLink="/about"
-      routerLinkActive="text-white"
-      class="text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
-      >About us</a
+      routerLinkActive="active"
+      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      #aboutLink="routerLinkActive"
     >
+      About us
+      <span
+        *ngIf="aboutLink.isActive"
+        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
+      ></span>
+    </a>
     <a
-      href="#"
-      class="text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
-      >Contact Us</a
+      routerLink="/contact"
+      routerLinkActive="active"
+      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      #contactLink="routerLinkActive"
     >
+      Contact Us
+      <span
+        *ngIf="contactLink.isActive"
+        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
+      ></span>
+    </a>
   </nav>
 
   <!-- Right Side Actions -->
