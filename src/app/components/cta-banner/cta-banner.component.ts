@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-cta-banner',
+  selector: "app-cta-banner",
   imports: [CommonModule],
-  templateUrl: './cta-banner.component.html',
-  styleUrl: './cta-banner.component.css'
+  templateUrl: "./cta-banner.component.html",
+  styleUrl: "./cta-banner.component.css",
 })
 export class CtaBannerComponent {}
