@@ -15,6 +15,7 @@ module.exports = {
         rubik: ["Rubik", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
         questrial: ["Questrial", "sans-serif"],
+        "general-sans": ["General Sans", "sans-serif"],
       },
     },
   },
