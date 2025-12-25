@@ -4,7 +4,6 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 import { CartService } from "../../services/cart.service";
 import { AuthService } from "../../services/auth.service";
 import { CurrencyNotePopupComponent } from "../currency-note-popup/currency-note-popup.component";
-import { LoginPopupComponent } from "../login-popup/login-popup.component";
 
 @Component({
   selector: "app-header",
@@ -13,7 +12,6 @@ import { LoginPopupComponent } from "../login-popup/login-popup.component";
     RouterLink,
     RouterLinkActive,
     CurrencyNotePopupComponent,
-    LoginPopupComponent,
   ],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
