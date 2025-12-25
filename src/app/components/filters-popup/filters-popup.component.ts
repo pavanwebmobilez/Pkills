@@ -12,7 +12,7 @@ export class FiltersPopupComponent {
   filterService = inject(FilterService);
 
   get isOpen() {
-    return this.filterService.isOpen();
+    return this.filterService.isOpen;
   }
 
   get filters() {
