@@ -32,4 +32,11 @@ export const routes: Routes = [
         (m) => m.PrivacyPolicyComponent
       ),
   },
+  {
+    path: "terms-and-conditions",
+    loadComponent: () =>
+      import("./pages/terms-and-conditions/terms-and-conditions.component").then(
+        (m) => m.TermsAndConditionsComponent
+      ),
+  },
 ];
