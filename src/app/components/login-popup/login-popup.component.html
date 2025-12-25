@@ -1,0 +1,221 @@
+<!-- Backdrop -->
+<div
+  *ngIf="isOpen()"
+  class="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4"
+  (click)="closePopup()"
+>
+  <!-- Popup Container -->
+  <div
+    class="bg-white rounded-[20px] w-full max-w-[420px] p-5 relative border border-[rgba(180,173,173,0.2)] shadow-[0_10px_40px_-4px_rgba(16,24,40,0.02),0_8px_8px_-4px_rgba(16,24,40,0.02)]"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Close Button -->
+    <button
+      (click)="closePopup()"
+      class="absolute right-5 top-6 w-[34px] h-[31px] flex items-center justify-center rounded-[5px] bg-white hover:bg-gray-50 transition-colors"
+      aria-label="Close"
+    >
+      <svg
+        class="w-[18px] h-[18px]"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M11.7841 12.5798C12.0038 12.7995 12.3599 12.7995 12.5796 12.5798C12.7993 12.3602 12.7993 12.004 12.5796 11.7843L9.79537 9.00011L12.5796 6.2159C12.7992 5.99623 12.7992 5.64007 12.5796 5.4204C12.3599 5.20073 12.0038 5.20073 11.7841 5.4204L8.99987 8.20461L6.21563 5.42037C5.99596 5.2007 5.6398 5.2007 5.42013 5.42037C5.20046 5.64004 5.20046 5.99619 5.42013 6.21586L8.20438 9.00011L5.42012 11.7844C5.20045 12.004 5.20045 12.3602 5.42012 12.5799C5.63979 12.7995 5.99595 12.7995 6.21562 12.5799L8.99987 9.7956L11.7841 12.5798Z"
+          fill="#161010"
+        />
+      </svg>
+    </button>
+
+    <!-- Header -->
+    <div class="flex flex-col gap-[5px] mb-5">
+      <h2 class="text-[#161010] font-roboto text-[30px] font-bold leading-normal">
+        Welcome 👋
+      </h2>
+      <p
+        class="text-[#B4ADAD] font-roboto text-base font-normal leading-[26px]"
+      >
+        Please login here
+      </p>
+    </div>
+
+    <!-- Form -->
+    <form (ngSubmit)="onSubmit()" class="flex flex-col gap-[30px]">
+      <!-- Email and Password Fields -->
+      <div class="flex flex-col gap-4">
+        <!-- Email Field -->
+        <div class="flex flex-col gap-[2px]">
+          <label
+            for="email"
+            class="text-[#161010] font-roboto text-xs font-normal leading-5"
+          >
+            Email Address
+          </label>
+          <input
+            id="email"
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="perrywatson@example.com"
+            class="w-full h-14 px-4 pt-4 pb-[14px] rounded-[10px] border border-pkills-red text-[#161010] font-roboto text-base font-normal leading-[26px] outline-none focus:border-pkills-red focus:ring-1 focus:ring-pkills-red"
+            required
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div class="flex flex-col gap-[2px]">
+          <label
+            for="password"
+            class="text-[#161010] font-roboto text-xs font-normal leading-5"
+          >
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="••••••••••••••••••"
+            class="w-full h-14 px-4 rounded-[10px] border border-pkills-red text-[#161010] font-poppins text-base font-normal outline-none focus:border-pkills-red focus:ring-1 focus:ring-pkills-red"
+            required
+          />
+        </div>
+
+        <!-- Remember Me and Forgot Password -->
+        <div class="flex items-center justify-between gap-[30px]">
+          <!-- Remember Me Checkbox -->
+          <label class="flex items-center gap-[10px] cursor-pointer">
+            <button
+              type="button"
+              (click)="rememberMe = !rememberMe"
+              class="w-6 h-6 flex items-center justify-center"
+            >
+              <svg
+                *ngIf="rememberMe"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M18 2H6C3.79086 2 2 3.79086 2 6V18C2 20.2091 3.79086 22 6 22H18C20.2091 22 22 20.2091 22 18V6C22 3.79086 20.2091 2 18 2ZM16.592 9.46049C16.8463 9.13353 16.7874 8.66232 16.4605 8.40802C16.1335 8.15372 15.6623 8.21262 15.408 8.53958L11.401 13.6914C11.3119 13.806 11.1443 13.8209 11.0364 13.7238L8.50173 11.4426C8.19385 11.1655 7.71963 11.1904 7.44254 11.4983C7.16544 11.8062 7.1904 12.2804 7.49828 12.5575L10.033 14.8387C10.7881 15.5183 11.9613 15.4143 12.585 14.6123L16.592 9.46049Z"
+                  fill="#AF0A09"
+                />
+              </svg>
+              <svg
+                *ngIf="!rememberMe"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6C2 3.79086 3.79086 2 6 2Z"
+                  stroke="#161010"
+                  stroke-opacity="0.1"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <span
+              class="text-[#161010] font-roboto text-base font-normal leading-[26px]"
+            >
+              Remember Me
+            </span>
+          </label>
+
+          <!-- Forgot Password -->
+          <button
+            type="button"
+            (click)="onForgotPassword()"
+            class="text-[#161010] text-right font-roboto text-sm font-normal leading-[22px] hover:underline"
+          >
+            Forgot Password?
+          </button>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex flex-col gap-[10px]">
+        <!-- Login Button -->
+        <button
+          type="submit"
+          class="w-full h-14 px-5 flex items-center justify-center rounded-[10px] bg-pkills-red text-white font-roboto text-base font-normal leading-[26px] hover:bg-[#8F0808] transition-colors"
+        >
+          Login
+        </button>
+
+        <!-- Register Button -->
+        <button
+          type="button"
+          (click)="onRegister()"
+          class="w-full h-14 px-5 flex items-center justify-center rounded-[10px] border border-pkills-red text-pkills-red font-roboto text-base font-normal leading-[26px] hover:bg-pkills-red hover:text-white transition-colors"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+
+    <!-- Divider -->
+    <div class="flex items-center gap-4 my-5">
+      <div class="flex-1 h-[1px] bg-[rgba(180,173,173,0.2)]"></div>
+      <span
+        class="text-[#161010] text-center font-roboto text-sm font-normal leading-[22px]"
+      >
+        Or Login With
+      </span>
+      <div class="flex-1 h-[1px] bg-[rgba(180,173,173,0.2)]"></div>
+    </div>
+
+    <!-- Google Login Button -->
+    <button
+      type="button"
+      (click)="onGoogleLogin()"
+      class="w-full h-14 px-5 flex items-center justify-center gap-[10px] rounded-[10px] border border-[rgba(180,173,173,0.2)] hover:bg-gray-50 transition-colors"
+    >
+      <svg
+        class="w-6 h-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M20.8125 12.2047C20.8125 11.5665 20.7552 10.9529 20.6489 10.3638H12.1724V13.8452H17.0161C16.8074 14.9702 16.1733 15.9234 15.2201 16.5616V18.8198H18.1288C19.8307 17.253 20.8125 14.9457 20.8125 12.2047Z"
+          fill="#4285F4"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.1727 21.0001C14.6028 21.0001 16.6401 20.1942 18.1292 18.8196L15.2205 16.5614C14.4146 17.1014 13.3837 17.4205 12.1727 17.4205C9.82861 17.4205 7.84448 15.8373 7.13675 13.71H4.12988V16.0418C5.61081 18.9832 8.6545 21.0001 12.1727 21.0001Z"
+          fill="#34A853"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M7.13651 13.7102C6.95651 13.1702 6.85424 12.5933 6.85424 12.0001C6.85424 11.4069 6.95651 10.8301 7.13651 10.2901V7.95825H4.12965C3.5201 9.17327 3.17236 10.5478 3.17236 12.0001C3.17236 13.4524 3.5201 14.827 4.12965 16.042L7.13651 13.7102Z"
+          fill="#FBBC05"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.1727 6.5796C13.4941 6.5796 14.6805 7.0337 15.6132 7.92553L18.1946 5.34413C16.636 3.89183 14.5987 3 12.1727 3C8.6545 3 5.61081 5.01685 4.12988 7.95826L7.13675 10.2901C7.84448 8.16281 9.82861 6.5796 12.1727 6.5796Z"
+          fill="#AF0A09"
+        />
+      </svg>
+      <span
+        class="text-[#161010] font-roboto text-base font-normal leading-[26px]"
+      >
+        Login with Google
+      </span>
+    </button>
+  </div>
+</div>
