@@ -68,7 +68,10 @@
   <!-- Right Side Actions -->
   <div class="flex items-center gap-8">
     <!-- Currency Selector - Hidden on mobile -->
-    <button class="hidden md:flex items-center justify-center gap-2">
+    <button
+      (click)="openCurrencyPopup()"
+      class="hidden md:flex items-center justify-center gap-2"
+    >
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/6aaa24d65be2dc7217a6c1c21b3bd559582f595e?width=40"
         alt="US Flag"
@@ -130,3 +133,9 @@
     </button>
   </div>
 </header>
+
+<!-- Currency Note Popup -->
+<app-currency-note-popup
+  [isOpen]="isCurrencyPopupOpen"
+  (close)="closeCurrencyPopup()"
+></app-currency-note-popup>
