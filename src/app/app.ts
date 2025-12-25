@@ -4,6 +4,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CartSidebarComponent } from "./components/cart-sidebar/cart-sidebar.component";
 import { LoginPopupComponent } from "./components/login-popup/login-popup.component";
+import { RegisterPopupComponent } from "./components/register-popup/register-popup.component";
 
 @Component({
   selector: "app-root",
@@ -13,6 +14,7 @@ import { LoginPopupComponent } from "./components/login-popup/login-popup.compon
     FooterComponent,
     CartSidebarComponent,
     LoginPopupComponent,
+    RegisterPopupComponent,
   ],
   templateUrl: "./app.html",
   styleUrl: "./app.css",
