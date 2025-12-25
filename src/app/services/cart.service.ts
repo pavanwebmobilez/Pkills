@@ -28,7 +28,7 @@ export class CartService {
   get cartTotal(): number {
     return this.cartItems().reduce(
       (sum, item) => sum + item.price * item.quantity,
-      0
+      0,
     );
   }
 
@@ -39,7 +39,9 @@ export class CartService {
     image: string;
     isVeg: boolean;
   }) {
-    const existingItem = this.cartItems().find((item) => item.id === product.id);
+    const existingItem = this.cartItems().find(
+      (item) => item.id === product.id,
+    );
 
     if (existingItem) {
       this.updateQuantity(product.id, existingItem.quantity + 1);
@@ -61,14 +63,14 @@ export class CartService {
 
     this.cartItems.update((items) =>
       items.map((item) =>
-        item.id === productId ? { ...item, quantity } : item
-      )
+        item.id === productId ? { ...item, quantity } : item,
+      ),
     );
   }
 
   removeFromCart(productId: number) {
     this.cartItems.update((items) =>
-      items.filter((item) => item.id !== productId)
+      items.filter((item) => item.id !== productId),
     );
   }
 

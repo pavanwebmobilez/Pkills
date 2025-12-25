@@ -10,7 +10,7 @@ export const routes: Routes = [
     path: "about",
     loadComponent: () =>
       import("./pages/about-us/about-us.component").then(
-        (m) => m.AboutUsComponent
+        (m) => m.AboutUsComponent,
       ),
   },
   {
@@ -22,21 +22,21 @@ export const routes: Routes = [
     path: "contact",
     loadComponent: () =>
       import("./pages/contact-us/contact-us.component").then(
-        (m) => m.ContactUsComponent
+        (m) => m.ContactUsComponent,
       ),
   },
   {
     path: "privacy-policy",
     loadComponent: () =>
       import("./pages/privacy-policy/privacy-policy.component").then(
-        (m) => m.PrivacyPolicyComponent
+        (m) => m.PrivacyPolicyComponent,
       ),
   },
   {
     path: "terms-and-conditions",
     loadComponent: () =>
       import("./pages/terms-and-conditions/terms-and-conditions.component").then(
-        (m) => m.TermsAndConditionsComponent
+        (m) => m.TermsAndConditionsComponent,
       ),
   },
 ];

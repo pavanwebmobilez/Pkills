@@ -330,8 +330,10 @@
           Spice Level :
         </h3>
         <div class="flex flex-wrap items-start gap-5">
-          @for (level of ['mild', 'medium', 'spicy', 'extraSpicy', 'all'];
-          track level) {
+          @for (
+            level of ["mild", "medium", "spicy", "extraSpicy", "all"];
+            track level
+          ) {
             <button
               (click)="setSpiceLevel(level)"
               class="flex items-center gap-1.5 cursor-pointer"
@@ -392,7 +394,7 @@
           Weight :
         </h3>
         <div class="flex flex-wrap items-start gap-5">
-          @for (weight of ['1lb', '2lb', '3lb', 'anySize']; track weight) {
+          @for (weight of ["1lb", "2lb", "3lb", "anySize"]; track weight) {
             <button
               (click)="setWeight(weight)"
               class="flex items-center gap-1.5 cursor-pointer"

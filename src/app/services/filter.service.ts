@@ -61,9 +61,7 @@ export class FilterService {
     const active: string[] = [];
 
     if (state.sortBy !== "all" && state.sortBy !== "featured") {
-      active.push(
-        state.sortBy === "lowToHigh" ? "Low to High" : "High to Low"
-      );
+      active.push(state.sortBy === "lowToHigh" ? "Low to High" : "High to Low");
     }
 
     if (state.type !== "all") {
@@ -78,7 +76,7 @@ export class FilterService {
         extraSpicy: "Extra Spicy",
       };
       active.push(
-        spiceLabels[state.spiceLevel as keyof typeof spiceLabels] || ""
+        spiceLabels[state.spiceLevel as keyof typeof spiceLabels] || "",
       );
     }
 
@@ -88,7 +86,9 @@ export class FilterService {
         "2lb": "2 lb",
         "3lb": "3 lb",
       };
-      active.push(weightLabels[state.weight as keyof typeof weightLabels] || "");
+      active.push(
+        weightLabels[state.weight as keyof typeof weightLabels] || "",
+      );
     }
 
     return active.filter(Boolean);

@@ -167,7 +167,7 @@ export class ShopComponent {
 
   get filteredProducts() {
     return this.products.filter((product) =>
-      product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      product.name.toLowerCase().includes(this.searchQuery.toLowerCase()),
     );
   }
 

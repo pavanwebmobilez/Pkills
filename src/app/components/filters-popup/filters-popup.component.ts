@@ -33,7 +33,7 @@ export class FiltersPopupComponent {
 
   setSpiceLevel(spiceLevel: any) {
     this.filterService.updateSpiceLevel(
-      spiceLevel as FilterState["spiceLevel"]
+      spiceLevel as FilterState["spiceLevel"],
     );
   }
 
