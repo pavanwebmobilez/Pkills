@@ -51,7 +51,7 @@ export class ShopComponent {
   products: Product[] = [
     {
       id: 1,
-      name: "Mango Pickles",
+      name: "Mango Pickle",
       price: "$56.00/lb",
       priceValue: 56.0,
       image:
@@ -60,102 +60,102 @@ export class ShopComponent {
     },
     {
       id: 2,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Lime Pickle",
+      price: "$48.00/lb",
+      priceValue: 48.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
-      isVeg: false,
+      isVeg: true,
     },
     {
       id: 3,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Garlic Pickle",
+      price: "$62.00/lb",
+      priceValue: 62.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 4,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Mixed Vegetable Pickle",
+      price: "$54.00/lb",
+      priceValue: 54.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 5,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Chili Pickle",
+      price: "$58.00/lb",
+      priceValue: 58.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 6,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Ginger Pickle",
+      price: "$52.00/lb",
+      priceValue: 52.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 7,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Chicken Pickle",
+      price: "$72.00/lb",
+      priceValue: 72.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: false,
     },
     {
       id: 8,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Amla Pickle",
+      price: "$50.00/lb",
+      priceValue: 50.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 9,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Onion Pickle",
+      price: "$46.00/lb",
+      priceValue: 46.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 10,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Turmeric Pickle",
+      price: "$60.00/lb",
+      priceValue: 60.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
     },
     {
       id: 11,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
-      isVeg: true,
-    },
-    {
-      id: 12,
-      name: "Mango Pickles",
-      price: "$56.00/lb",
-      priceValue: 56.0,
+      name: "Fish Pickle",
+      price: "$78.00/lb",
+      priceValue: 78.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: false,
+    },
+    {
+      id: 12,
+      name: "Corn Pickle",
+      price: "$54.00/lb",
+      priceValue: 54.0,
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
+      isVeg: true,
     },
   ];
 
