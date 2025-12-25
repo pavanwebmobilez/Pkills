@@ -1,6 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CartService } from "../../services/cart.service";
+import { FilterService } from "../../services/filter.service";
+import { FiltersPopupComponent } from "../../components/filters-popup/filters-popup.component";
 
 interface Product {
   id: number;
@@ -13,12 +15,38 @@ interface Product {
 
 @Component({
   selector: "app-shop",
-  imports: [CommonModule],
+  imports: [CommonModule, FiltersPopupComponent],
   templateUrl: "./shop.component.html",
   styleUrl: "./shop.component.css",
 })
 export class ShopComponent {
   cartService = inject(CartService);
+  filterService = inject(FilterService);
+
+  get activeFilters() {
+    return this.filterService.getActiveFilters();
+  }
+
+  openFilters() {
+    this.filterService.openFilters();
+  }
+
+  removeFilter(filterName: string) {
+    const state = this.filterService.filterState();
+
+    // Reset the specific filter based on the name
+    if (filterName === "Low to High" || filterName === "High to Low") {
+      this.filterService.updateSortBy("all");
+    } else if (filterName === "Veg" || filterName === "Non-Veg") {
+      this.filterService.updateType("all");
+    } else if (
+      ["Mild", "Medium", "Spicy", "Extra Spicy"].includes(filterName)
+    ) {
+      this.filterService.updateSpiceLevel("all");
+    } else if (["1 lb", "2 lb", "3 lb"].includes(filterName)) {
+      this.filterService.updateWeight("anySize");
+    }
+  }
 
   products: Product[] = [
     {
