@@ -164,8 +164,14 @@ export class ShopComponent {
   currentPage = 1;
   totalPages = 5;
 
+  get filteredProducts() {
+    return this.products.filter((product) =>
+      product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
   get paginatedProducts() {
-    return this.products;
+    return this.filteredProducts;
   }
 
   addToCart(product: Product) {
