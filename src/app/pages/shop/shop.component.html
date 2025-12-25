@@ -95,50 +95,35 @@
       <div class="flex items-center gap-4 w-full lg:w-auto justify-end">
         <!-- Active Filters -->
         <div class="flex items-center gap-4">
-          <div
-            class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#493A3A]"
-          >
-            <span class="text-[#C4C4C4] font-montserrat text-sm font-medium"
-              >Non-Veg</span
+          @for (filter of activeFilters; track filter) {
+            <div
+              class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#493A3A]"
             >
-            <svg
-              class="w-5 h-5"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M14.9613 15.736C15.3133 16.0879 15.884 16.0879 16.236 15.736C16.588 15.384 16.588 14.8133 16.236 14.4613L11.7747 9.99999L16.236 5.53871C16.588 5.18672 16.588 4.61603 16.236 4.26404C15.884 3.91206 15.3133 3.91206 14.9613 4.26404L10.5 8.72533L6.03867 4.26399C5.68668 3.912 5.11599 3.912 4.764 4.26399C4.41201 4.61598 4.41201 5.18667 4.764 5.53865L9.22536 9.99999L4.76399 14.4613C4.412 14.8133 4.412 15.384 4.76399 15.736C5.11598 16.088 5.68667 16.088 6.03866 15.736L10.5 11.2747L14.9613 15.736Z"
-                fill="#C4C4C4"
-              />
-            </svg>
-          </div>
-          <div
-            class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#493A3A]"
-          >
-            <span class="text-[#C4C4C4] font-montserrat text-sm font-medium"
-              >Featured</span
-            >
-            <svg
-              class="w-5 h-5"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M14.9613 15.736C15.3133 16.0879 15.884 16.0879 16.236 15.736C16.588 15.384 16.588 14.8133 16.236 14.4613L11.7747 9.99999L16.236 5.53871C16.588 5.18672 16.588 4.61603 16.236 4.26404C15.884 3.91206 15.3133 3.91206 14.9613 4.26404L10.5 8.72533L6.03867 4.26399C5.68668 3.912 5.11599 3.912 4.764 4.26399C4.41201 4.61598 4.41201 5.18667 4.764 5.53865L9.22536 9.99999L4.76399 14.4613C4.412 14.8133 4.412 15.384 4.76399 15.736C5.11598 16.088 5.68667 16.088 6.03866 15.736L10.5 11.2747L14.9613 15.736Z"
-                fill="#C4C4C4"
-              />
-            </svg>
-          </div>
+              <span class="text-[#C4C4C4] font-montserrat text-sm font-medium">
+                {{ filter }}
+              </span>
+              <button (click)="removeFilter(filter)" aria-label="Remove filter">
+                <svg
+                  class="w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.9613 15.736C15.3133 16.0879 15.884 16.0879 16.236 15.736C16.588 15.384 16.588 14.8133 16.236 14.4613L11.7747 9.99999L16.236 5.53871C16.588 5.18672 16.588 4.61603 16.236 4.26404C15.884 3.91206 15.3133 3.91206 14.9613 4.26404L10.5 8.72533L6.03867 4.26399C5.68668 3.912 5.11599 3.912 4.764 4.26399C4.41201 4.61598 4.41201 5.18667 4.764 5.53865L9.22536 9.99999L4.76399 14.4613C4.412 14.8133 4.412 15.384 4.76399 15.736C5.11598 16.088 5.68667 16.088 6.03866 15.736L10.5 11.2747L14.9613 15.736Z"
+                    fill="#C4C4C4"
+                  />
+                </svg>
+              </button>
+            </div>
+          }
         </div>
 
         <!-- Filter Button -->
         <button
+          (click)="openFilters()"
           class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-pkills-red"
         >
           <svg
