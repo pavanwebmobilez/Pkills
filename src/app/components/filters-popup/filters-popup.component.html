@@ -333,7 +333,7 @@
           @for (level of ['mild', 'medium', 'spicy', 'extraSpicy', 'all'];
           track level) {
             <button
-              (click)="setSpiceLevel(level)"
+              (click)="setSpiceLevel(level as FilterState['spiceLevel'])"
               class="flex items-center gap-1.5 cursor-pointer"
             >
               <svg
@@ -394,7 +394,7 @@
         <div class="flex flex-wrap items-start gap-5">
           @for (weight of ['1lb', '2lb', '3lb', 'anySize']; track weight) {
             <button
-              (click)="setWeight(weight)"
+              (click)="setWeight(weight as FilterState['weight'])"
               class="flex items-center gap-1.5 cursor-pointer"
             >
               <svg
