@@ -1,0 +1,189 @@
+<!-- Backdrop -->
+<div
+  *ngIf="isOpen"
+  class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+  (click)="closeCart()"
+></div>
+
+<!-- Cart Sidebar -->
+<div
+  [class]="
+    'fixed top-0 right-0 h-full w-full sm:w-[600px] bg-background z-50 transition-transform duration-300 ease-in-out ' +
+    (isOpen ? 'translate-x-0' : 'translate-x-full')
+  "
+  style="right: 15px"
+>
+  <div
+    class="h-full overflow-y-auto rounded-[20px] border border-[#464646] bg-background m-[26px] p-6"
+  >
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-12">
+      <h2 class="text-[#C4C4C4] font-montserrat text-3xl font-bold">Cart</h2>
+      <button
+        (click)="closeCart()"
+        class="w-6 h-6 flex items-center justify-center hover:opacity-70 transition-opacity"
+        aria-label="Close cart"
+      >
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M15.7128 16.7729C16.0057 17.0658 16.4805 17.0658 16.7734 16.7729C17.0663 16.48 17.0663 16.0052 16.7734 15.7123L13.0611 12L16.7734 8.2877C17.0663 7.99481 17.0663 7.51993 16.7734 7.22704C16.4805 6.93415 16.0057 6.93415 15.7128 7.22704L12.0005 10.9393L8.28815 7.22699C7.99526 6.9341 7.52038 6.9341 7.22749 7.22699C6.9346 7.51989 6.9346 7.99476 7.22749 8.28765L10.9398 12L7.22748 15.7123C6.93459 16.0052 6.93459 16.4801 7.22748 16.773C7.52038 17.0659 7.99525 17.0659 8.28814 16.773L12.0005 13.0606L15.7128 16.7729Z"
+            fill="#C4C4C4"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Cart Items -->
+    <div class="flex flex-col gap-5 mb-8">
+      @if (items.length === 0) {
+        <div class="text-center py-12">
+          <p class="text-[#C4C4C4] font-montserrat text-lg">
+            Your cart is empty
+          </p>
+        </div>
+      } @else {
+        @for (item of items; track item.id) {
+          <div class="flex items-start gap-4 relative">
+            <!-- Product Image -->
+            <div class="relative w-[169px] h-[122px] flex-shrink-0">
+              <div
+                class="w-full h-full rounded-[20px] bg-[#D9D9D9] overflow-hidden"
+              >
+                <img
+                  [src]="item.image"
+                  [alt]="item.name"
+                  class="w-full h-full object-contain p-4"
+                />
+              </div>
+              <!-- Veg/Non-Veg Indicator -->
+              <div
+                class="absolute top-4 right-4 w-[18px] h-[18px] rounded-[3px] border flex items-center justify-center"
+                [class.border-[#4DB724]]="item.isVeg"
+                [class.border-[#AF0A09]]="!item.isVeg"
+              >
+                <div
+                  class="w-[11px] h-[11px] rounded-full"
+                  [class.bg-[#4DB724]]="item.isVeg"
+                  [class.bg-[#AF0A09]]="!item.isVeg"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="flex-1">
+              <h3
+                class="text-white font-montserrat text-xl font-medium tracking-tight mb-1"
+              >
+                {{ item.name }}
+              </h3>
+              <p class="text-[#C4C4C4] font-montserrat text-base font-medium">
+                {{ item.weight }}
+              </p>
+              <p
+                class="text-[#C4C4C4] font-montserrat text-[22px] font-bold tracking-tight mt-3"
+              >
+                ${{ item.price.toFixed(2) }}
+              </p>
+            </div>
+
+            <!-- Quantity Controls -->
+            <div class="flex items-center gap-1">
+              <!-- Decrease Button -->
+              <button
+                (click)="decreaseQuantity(item.id, item.quantity)"
+                class="w-[30px] h-[30px] rounded-full border border-pkills-red flex items-center justify-center hover:bg-pkills-red/10 transition-colors"
+                aria-label="Decrease quantity"
+              >
+                <svg
+                  class="w-4 h-4"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 8H12"
+                    stroke="#AF0A09"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <!-- Quantity Display -->
+              <div
+                class="h-[26px] px-[9px] py-[2px] rounded-xl bg-[#F9F9F9] flex items-center justify-center min-w-[35px]"
+              >
+                <span
+                  class="text-background font-montserrat text-sm font-medium"
+                >
+                  {{ item.quantity.toString().padStart(2, "0") }}
+                </span>
+              </div>
+
+              <!-- Increase Button -->
+              <button
+                (click)="increaseQuantity(item.id, item.quantity)"
+                class="w-[30px] h-[30px] rounded-full bg-pkills-red flex items-center justify-center hover:bg-pkills-red/90 transition-colors"
+                aria-label="Increase quantity"
+              >
+                <svg
+                  class="w-4 h-4"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 8.5H4C3.72667 8.5 3.5 8.27333 3.5 8C3.5 7.72667 3.72667 7.5 4 7.5H12C12.2733 7.5 12.5 7.72667 12.5 8C12.5 8.27333 12.2733 8.5 12 8.5Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M8 12.5C7.72667 12.5 7.5 12.2733 7.5 12V4C7.5 3.72667 7.72667 3.5 8 3.5C8.27333 3.5 8.5 3.72667 8.5 4V12C8.5 12.2733 8.27333 12.5 8 12.5Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        }
+      }
+    </div>
+
+    <!-- Footer -->
+    @if (items.length > 0) {
+      <div class="mt-auto pt-6 border-t border-[#6F6F6F]">
+        <!-- Total -->
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-white font-montserrat text-2xl font-medium">
+            Total
+          </span>
+          <span class="text-[#C4C4C4] font-montserrat text-2xl font-bold">
+            ${{ total.toFixed(2) }}
+          </span>
+        </div>
+
+        <!-- Shipping Notice -->
+        <p
+          class="text-[#C4C4C4] text-center font-montserrat text-base font-medium mb-6"
+        >
+          Taxes, discounts and shipping calculated at checkout
+        </p>
+
+        <!-- Checkout Button -->
+        <button
+          (click)="checkout()"
+          class="w-full px-8 py-4 rounded-lg border border-pkills-red text-pkills-red font-rubik text-lg font-semibold tracking-tight hover:bg-pkills-red hover:text-white transition-colors"
+        >
+          Check Out
+        </button>
+      </div>
+    }
+  </div>
+</div>
