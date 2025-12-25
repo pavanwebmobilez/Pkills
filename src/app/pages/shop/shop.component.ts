@@ -1,10 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { CartService } from "../../services/cart.service";
 
 interface Product {
   id: number;
   name: string;
   price: string;
+  priceValue: number;
   image: string;
   isVeg: boolean;
 }
@@ -16,11 +18,14 @@ interface Product {
   styleUrl: "./shop.component.css",
 })
 export class ShopComponent {
+  cartService = inject(CartService);
+
   products: Product[] = [
     {
       id: 1,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -29,6 +34,7 @@ export class ShopComponent {
       id: 2,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: false,
@@ -37,6 +43,7 @@ export class ShopComponent {
       id: 3,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -45,6 +52,7 @@ export class ShopComponent {
       id: 4,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -53,6 +61,7 @@ export class ShopComponent {
       id: 5,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -61,6 +70,7 @@ export class ShopComponent {
       id: 6,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -69,6 +79,7 @@ export class ShopComponent {
       id: 7,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: false,
@@ -77,6 +88,7 @@ export class ShopComponent {
       id: 8,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -85,6 +97,7 @@ export class ShopComponent {
       id: 9,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -93,6 +106,7 @@ export class ShopComponent {
       id: 10,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -101,6 +115,7 @@ export class ShopComponent {
       id: 11,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: true,
@@ -109,6 +124,7 @@ export class ShopComponent {
       id: 12,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0ea8e8f51e8d0f20e4d2dbdebd03c2b2c1dfcaaa?width=376",
       isVeg: false,
@@ -120,6 +136,17 @@ export class ShopComponent {
 
   get paginatedProducts() {
     return this.products;
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.priceValue,
+      image: product.image,
+      isVeg: product.isVeg,
+    });
+    this.cartService.openCart();
   }
 
   goToPage(page: number) {
