@@ -1,10 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { CartService } from "../../services/cart.service";
 
 interface Product {
   id: number;
   name: string;
   price: string;
+  priceValue: number;
   image: string;
   overlayImage: string;
   isVeg: boolean;
@@ -17,11 +19,14 @@ interface Product {
   styleUrl: "./products.component.css",
 })
 export class ProductsComponent {
+  cartService = inject(CartService);
+
   products: Product[] = [
     {
       id: 1,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/2e39c2fa863f2bdf23180f4b68151ae8673f16e9?width=586",
       overlayImage:
@@ -32,6 +37,7 @@ export class ProductsComponent {
       id: 2,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/2e39c2fa863f2bdf23180f4b68151ae8673f16e9?width=586",
       overlayImage:
@@ -42,6 +48,7 @@ export class ProductsComponent {
       id: 3,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/2e39c2fa863f2bdf23180f4b68151ae8673f16e9?width=586",
       overlayImage:
@@ -52,6 +59,7 @@ export class ProductsComponent {
       id: 4,
       name: "Mango Pickles",
       price: "$56.00/lb",
+      priceValue: 56.0,
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/2e39c2fa863f2bdf23180f4b68151ae8673f16e9?width=586",
       overlayImage:
@@ -59,4 +67,15 @@ export class ProductsComponent {
       isVeg: true,
     },
   ];
+
+  addToCart(product: Product) {
+    this.cartService.addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.priceValue,
+      image: product.overlayImage,
+      isVeg: product.isVeg,
+    });
+    this.cartService.openCart();
+  }
 }
