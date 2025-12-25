@@ -76,6 +76,5 @@ export class ProductsComponent {
       image: product.overlayImage,
       isVeg: product.isVeg,
     });
-    this.cartService.openCart();
   }
 }

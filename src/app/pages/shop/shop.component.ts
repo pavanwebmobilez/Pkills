@@ -146,7 +146,6 @@ export class ShopComponent {
       image: product.image,
       isVeg: product.isVeg,
     });
-    this.cartService.openCart();
   }
 
   goToPage(page: number) {
