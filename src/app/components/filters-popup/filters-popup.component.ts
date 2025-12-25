@@ -10,7 +10,6 @@ import { FilterService, FilterState } from "../../services/filter.service";
 })
 export class FiltersPopupComponent {
   filterService = inject(FilterService);
-  FilterState = FilterState;
 
   get isOpen() {
     return this.filterService.isOpen;
@@ -32,11 +31,13 @@ export class FiltersPopupComponent {
     this.filterService.updateType(type);
   }
 
-  setSpiceLevel(spiceLevel: FilterState["spiceLevel"]) {
-    this.filterService.updateSpiceLevel(spiceLevel);
+  setSpiceLevel(spiceLevel: any) {
+    this.filterService.updateSpiceLevel(
+      spiceLevel as FilterState["spiceLevel"]
+    );
   }
 
-  setWeight(weight: FilterState["weight"]) {
-    this.filterService.updateWeight(weight);
+  setWeight(weight: any) {
+    this.filterService.updateWeight(weight as FilterState["weight"]);
   }
 }
