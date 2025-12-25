@@ -1,0 +1,46 @@
+<!-- Backdrop -->
+<div
+  *ngIf="isOpen"
+  class="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4"
+  (click)="onClose()"
+>
+  <!-- Popup Container -->
+  <div
+    class="bg-white rounded-[20px] border border-[rgba(180,173,173,0.2)] shadow-lg w-full max-w-[420px] p-5 relative"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Header -->
+    <div class="flex items-start justify-between mb-8">
+      <h2 class="text-[#161010] font-roboto text-3xl font-bold">Note</h2>
+
+      <!-- Close Button -->
+      <button
+        (click)="onClose()"
+        class="flex items-center justify-center w-[34px] h-[31px] rounded-[5px] bg-white hover:bg-gray-50 transition-colors"
+        aria-label="Close"
+      >
+        <svg
+          class="w-[18px] h-[18px]"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M11.7846 12.5798C12.0042 12.7995 12.3604 12.7995 12.5801 12.5798C12.7997 12.3602 12.7997 12.004 12.5801 11.7843L9.79585 9.00011L12.5801 6.2159C12.7997 5.99623 12.7997 5.64007 12.5801 5.4204C12.3604 5.20073 12.0042 5.20073 11.7846 5.4204L9.00036 8.20461L6.21611 5.42037C5.99644 5.2007 5.64029 5.2007 5.42062 5.42037C5.20095 5.64004 5.20095 5.99619 5.42062 6.21586L8.20486 9.00011L5.42061 11.7844C5.20094 12.004 5.20094 12.3602 5.42061 12.5799C5.64028 12.7995 5.99644 12.7995 6.21611 12.5799L9.00036 9.7956L11.7846 12.5798Z"
+            fill="#161010"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div class="text-center">
+      <p class="text-[#161010] font-montserrat text-[15px] leading-relaxed">
+        Our delivery services are currently limited to the United States only.
+        International shipping will be added soon.
+      </p>
+    </div>
+  </div>
+</div>
