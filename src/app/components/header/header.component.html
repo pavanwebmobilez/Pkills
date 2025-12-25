@@ -127,6 +127,7 @@
 
     <!-- Sign In Button -->
     <button
+      (click)="openLogin()"
       class="px-6 py-3 border border-white rounded text-white font-rubik text-sm font-semibold tracking-tight hover:bg-white hover:text-background transition-colors"
     >
       Sign in
@@ -139,3 +140,6 @@
   [isOpen]="isCurrencyPopupOpen"
   (close)="closeCurrencyPopup()"
 ></app-currency-note-popup>
+
+<!-- Login Popup -->
+<app-login-popup></app-login-popup>
