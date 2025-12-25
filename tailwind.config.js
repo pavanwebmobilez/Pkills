@@ -16,6 +16,8 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
         questrial: ["Questrial", "sans-serif"],
         "general-sans": ["General Sans", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
