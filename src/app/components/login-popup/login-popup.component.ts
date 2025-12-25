@@ -35,8 +35,7 @@ export class LoginPopupComponent {
   }
 
   onRegister() {
-    // TODO: Navigate to register page or open register popup
-    console.log("Register clicked");
+    this.authService.openRegister();
   }
 
   onForgotPassword() {
