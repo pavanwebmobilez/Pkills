@@ -23,6 +23,8 @@ export class ShopComponent {
   cartService = inject(CartService);
   filterService = inject(FilterService);
 
+  searchQuery = "";
+
   get activeFilters() {
     return this.filterService.getActiveFilters();
   }
