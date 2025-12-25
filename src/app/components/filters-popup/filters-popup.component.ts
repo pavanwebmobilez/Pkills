@@ -10,6 +10,7 @@ import { FilterService, FilterState } from "../../services/filter.service";
 })
 export class FiltersPopupComponent {
   filterService = inject(FilterService);
+  FilterState = FilterState;
 
   get isOpen() {
     return this.filterService.isOpen;
