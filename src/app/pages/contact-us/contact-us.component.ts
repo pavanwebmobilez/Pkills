@@ -6,12 +6,7 @@ import { TestimonialsComponent } from "../../components/testimonials/testimonial
 
 @Component({
   selector: "app-contact-us",
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink,
-    TestimonialsComponent,
-  ],
+  imports: [CommonModule, FormsModule, RouterLink, TestimonialsComponent],
   templateUrl: "./contact-us.component.html",
   styleUrl: "./contact-us.component.css",
 })
