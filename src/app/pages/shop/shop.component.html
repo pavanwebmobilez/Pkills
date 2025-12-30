@@ -1,11 +1,11 @@
-<div class="bg-background min-h-screen">
+<div class="shop-container">
   <!-- Hero Section -->
-  <section class="pt-24 pb-12 px-8 lg:px-32">
-    <div class="max-w-[945px] mx-auto text-center">
+  <section class="shop-hero">
+    <div class="shop-hero-content">
       <!-- Decorative Icon -->
-      <div class="flex justify-center mb-4 relative">
+      <div class="shop-icon-wrapper">
         <svg
-          class="w-14 h-13 fill-pkills-yellow"
+          class="shop-icon"
           viewBox="0 0 56 52"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -50,23 +50,13 @@
       </div>
 
       <!-- Label -->
-      <p
-        class="text-pkills-yellow font-montserrat text-[15px] font-medium leading-relaxed mb-2"
-      >
-        Shop
-      </p>
+      <p class="shop-label">Shop</p>
 
       <!-- Main Heading -->
-      <h1
-        class="text-4xl font-montserrat font-medium leading-tight mb-4 bg-gradient-to-r from-[#FEC51C] via-[#FEC51C] to-[#AF0A09] bg-clip-text text-transparent"
-      >
-        Shop Fresh, Spicy & Full of Flavor
-      </h1>
+      <h1 class="shop-heading">Shop Fresh, Spicy & Full of Flavor</h1>
 
       <!-- Description -->
-      <p
-        class="text-[#CECECE] font-montserrat text-[15px] leading-relaxed max-w-[667px] mx-auto"
-      >
+      <p class="shop-description">
         Explore our wide range of handmade pickles, crafted with authentic
         recipes and natural ingredients to bring you the perfect blend of taste
         and tradition.
@@ -75,35 +65,34 @@
   </section>
 
   <!-- Filter Bar -->
-  <section class="bg-pkills-dark-gray py-4 px-8 lg:px-32">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+  <section class="shop-filter-bar">
+    <div class="filter-bar-content">
       <!-- Left: Category and Search -->
-      <div class="flex items-center gap-4 w-full lg:w-auto">
-        <h2 class="text-white font-montserrat text-xl font-bold tracking-tight">
-          Pickles
-        </h2>
+      <div class="filter-left">
+        <h2 class="filter-title">Pickles</h2>
         <input
+          pInputText
           type="text"
           [(ngModel)]="searchQuery"
           placeholder="Search here."
-          class="flex-1 lg:w-[288px] h-10 px-4 rounded-lg bg-[#493A3A] text-white placeholder:text-[#818181] font-montserrat text-[15px] outline-none"
+          class="search-input"
         />
       </div>
 
       <!-- Right: Filter Tags and Button -->
-      <div class="flex items-center gap-4 w-full lg:w-auto justify-end">
+      <div class="filter-right">
         <!-- Active Filters -->
-        <div class="flex items-center gap-4">
+        <div class="active-filters">
           @for (filter of activeFilters; track filter) {
-            <div
-              class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#493A3A]"
-            >
-              <span class="text-[#C4C4C4] font-montserrat text-sm font-medium">
-                {{ filter }}
-              </span>
-              <button (click)="removeFilter(filter)" aria-label="Remove filter">
+            <div class="filter-tag">
+              <span class="filter-tag-text">{{ filter }}</span>
+              <button
+                (click)="removeFilter(filter)"
+                aria-label="Remove filter"
+                class="filter-remove-btn"
+              >
                 <svg
-                  class="w-5 h-5"
+                  class="filter-remove-icon"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,11 +111,13 @@
 
         <!-- Filter Button -->
         <button
+          pButton
+          type="button"
           (click)="openFilters()"
-          class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-pkills-red"
+          class="filter-button"
         >
           <svg
-            class="w-5 h-5"
+            class="filter-button-icon"
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -197,125 +188,81 @@
               stroke-width="1.2"
             />
           </svg>
-          <span class="text-white font-montserrat text-sm font-medium"
-            >Filters</span
-          >
+          <span class="filter-button-text">Filters</span>
         </button>
       </div>
     </div>
   </section>
 
   <!-- Product Grid -->
-  <section class="py-16 px-8 lg:px-32">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+  <section class="shop-products-section">
+    <div class="shop-products-grid">
       @for (product of paginatedProducts; track product.id) {
-        <div class="relative">
+        <div class="shop-product-card">
           <!-- Product Image -->
-          <div class="relative rounded-[20px] bg-[#D9D9D9] h-[204px] mb-6">
+          <div class="shop-product-image-wrapper">
             <img
               [src]="product.image"
               [alt]="product.name"
-              class="w-full h-full object-contain p-4"
+              class="shop-product-image"
             />
             <!-- Veg/Non-Veg Indicator -->
-            <div
-              class="absolute top-5 right-5 w-[18px] h-[18px] rounded-[3px] border flex items-center justify-center"
-              [class.border-[#4DB724]="product.isVeg"
-              [class.border-[#AF0A09]="!product.isVeg"
-            >
-              <div
-                class="w-[11px] h-[11px] rounded-full"
-                [class.bg-[#4DB724]]="product.isVeg"
-                [class.bg-[#AF0A09]]="!product.isVeg"
-              ></div>
+            <div class="shop-veg-indicator" [class.veg]="product.isVeg" [class.non-veg]="!product.isVeg">
+              <div class="shop-veg-dot"></div>
             </div>
           </div>
 
           <!-- Product Info -->
-          <h3
-            class="text-white text-center font-montserrat text-xl font-medium tracking-tight mb-2"
-          >
-            {{ product.name }}
-          </h3>
-          <p
-            class="text-pkills-yellow text-center font-montserrat text-[22px] font-bold tracking-tight mb-6"
-          >
-            {{ product.price }}
-          </p>
+          <h3 class="shop-product-name">{{ product.name }}</h3>
+          <p class="shop-product-price">{{ product.price }}</p>
 
           <!-- Add to Cart Button -->
           <button
+            pButton
+            type="button"
+            label="Add to Cart"
             (click)="addToCart(product)"
-            class="w-full h-[60px] rounded-[10px] border-2 border-pkills-red text-pkills-red font-montserrat text-xl font-medium tracking-tight hover:bg-pkills-red hover:text-white transition-colors"
-          >
-            Add to Cart
-          </button>
+            class="shop-add-to-cart-btn"
+          ></button>
         </div>
       }
     </div>
   </section>
 
   <!-- Pagination -->
-  <section class="pb-16 px-8 lg:px-32">
-    <div class="flex items-center justify-center gap-2">
+  <section class="shop-pagination">
+    <div class="pagination-controls">
       <!-- Previous Button -->
       <button
+        pButton
+        type="button"
+        icon="pi pi-chevron-left"
         (click)="previousPage()"
         [disabled]="currentPage === 1"
-        class="w-6 h-6 flex items-center justify-center disabled:opacity-50"
-      >
-        <svg
-          class="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10 8L6 12M6 12L10 16M6 12L18 12"
-            [attr.stroke]="currentPage === 1 ? '#B4ADAD' : 'white'"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+        class="pagination-btn"
+      ></button>
 
       <!-- Page Numbers -->
       @for (page of [1, 2, 3, 4, 5]; track page) {
         <button
+          pButton
+          type="button"
+          [label]="page.toString()"
           (click)="goToPage(page)"
-          [class]="
-            'w-10 h-10 rounded-[5px] font-roboto text-base transition-colors ' +
-            (currentPage === page
-              ? 'bg-pkills-red text-white'
-              : 'bg-[rgba(180,173,173,0.2)] text-white hover:bg-[rgba(180,173,173,0.3)]')
-          "
-        >
-          {{ page }}
-        </button>
+          [class.active]="currentPage === page"
+          class="pagination-number"
+        ></button>
       }
 
       <!-- Next Button -->
       <button
+        pButton
+        type="button"
+        icon="pi pi-chevron-right"
         (click)="nextPage()"
         [disabled]="currentPage === totalPages"
-        class="w-6 h-6 flex items-center justify-center disabled:opacity-50"
-      >
-        <svg
-          class="w-6 h-6"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14 16L18 12M18 12L14 8M18 12L6 12"
-            stroke="white"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+        class="pagination-btn"
+      ></button>
     </div>
   </section>
 
