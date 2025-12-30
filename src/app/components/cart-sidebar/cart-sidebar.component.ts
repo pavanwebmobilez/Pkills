@@ -5,7 +5,7 @@ import { CartService } from "../../services/cart.service";
 
 @Component({
   selector: "app-cart-sidebar",
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: "./cart-sidebar.component.html",
   styleUrl: "./cart-sidebar.component.css",
 })
