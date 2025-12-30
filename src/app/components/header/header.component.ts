@@ -1,6 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { ButtonModule } from "primeng/button";
 import { CartService } from "../../services/cart.service";
 import { AuthService } from "../../services/auth.service";
 import { CurrencyNotePopupComponent } from "../currency-note-popup/currency-note-popup.component";
@@ -11,6 +12,7 @@ import { CurrencyNotePopupComponent } from "../currency-note-popup/currency-note
     CommonModule,
     RouterLink,
     RouterLinkActive,
+    ButtonModule,
     CurrencyNotePopupComponent,
   ],
   templateUrl: "./header.component.html",
