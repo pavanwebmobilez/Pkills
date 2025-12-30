@@ -81,5 +81,11 @@ export class ProductsComponent {
       image: product.overlayImage,
       isVeg: product.isVeg,
     });
+    this.messageService.add({
+      severity: "success",
+      summary: "Added to Cart",
+      detail: `${product.name} has been added to your cart`,
+      life: 3000,
+    });
   }
 }
