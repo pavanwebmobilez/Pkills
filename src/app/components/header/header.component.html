@@ -1,88 +1,74 @@
-<header
-  class="flex items-center justify-between px-8 lg:px-32 py-4 h-[120px] bg-black/50 relative z-50"
->
+<header class="header-container">
   <!-- Logo -->
-  <div class="flex items-center">
+  <div class="logo-section">
     <a routerLink="/">
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/36f720abb35445f11e070938256a90b3d7f28f17?width=370"
         alt="PKILLS Logo"
-        class="h-[84.718px] w-[185.167px]"
+        class="logo-image"
       />
     </a>
   </div>
 
-  <!-- Desktop Navigation - Hidden on mobile -->
-  <nav class="hidden lg:flex items-center gap-[62px] relative">
+  <!-- Desktop Navigation -->
+  <nav class="nav-desktop">
     <a
       routerLink="/"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      class="nav-link"
       #homeLink="routerLinkActive"
     >
       Home
-      <span
-        *ngIf="homeLink.isActive"
-        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
-      ></span>
+      <span *ngIf="homeLink.isActive" class="active-indicator"></span>
     </a>
     <a
       routerLink="/shop"
       routerLinkActive="active"
-      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      class="nav-link"
       #shopLink="routerLinkActive"
     >
       Shop
-      <span
-        *ngIf="shopLink.isActive"
-        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
-      ></span>
+      <span *ngIf="shopLink.isActive" class="active-indicator"></span>
     </a>
     <a
       routerLink="/about"
       routerLinkActive="active"
-      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      class="nav-link"
       #aboutLink="routerLinkActive"
     >
       About us
-      <span
-        *ngIf="aboutLink.isActive"
-        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
-      ></span>
+      <span *ngIf="aboutLink.isActive" class="active-indicator"></span>
     </a>
     <a
       routerLink="/contact"
       routerLinkActive="active"
-      class="relative text-[#C4C4C4] font-montserrat text-sm font-semibold tracking-tight hover:text-white transition-colors"
+      class="nav-link"
       #contactLink="routerLinkActive"
     >
       Contact Us
-      <span
-        *ngIf="contactLink.isActive"
-        class="absolute left-1/2 -translate-x-1/2 -bottom-1 w-[14px] h-[3px] bg-[#B10A09] rounded-[10px]"
-      ></span>
+      <span *ngIf="contactLink.isActive" class="active-indicator"></span>
     </a>
   </nav>
 
   <!-- Right Side Actions -->
-  <div class="flex items-center gap-8">
-    <!-- Currency Selector - Hidden on mobile -->
+  <div class="actions-section">
+    <!-- Currency Selector -->
     <button
+      pButton
+      type="button"
+      class="currency-btn"
       (click)="openCurrencyPopup()"
-      class="hidden md:flex items-center justify-center gap-2"
+      [attr.aria-label]="'Currency selector'"
     >
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/6aaa24d65be2dc7217a6c1c21b3bd559582f595e?width=40"
         alt="US Flag"
-        class="w-5 h-5"
+        class="currency-flag"
       />
-      <span
-        class="text-white font-montserrat text-sm font-semibold tracking-tight"
-        >USA $</span
-      >
+      <span class="currency-text">USA $</span>
       <svg
-        class="w-[10px] h-1 stroke-white"
+        class="currency-arrow"
         viewBox="0 0 12 6"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -98,10 +84,10 @@
     </button>
 
     <!-- Cart -->
-    <button (click)="openCart()" class="flex items-center gap-2">
-      <div class="relative w-6 h-6">
+    <button pButton type="button" class="cart-btn" (click)="openCart()">
+      <div class="cart-icon-wrapper">
         <svg
-          class="w-4 h-[17px] absolute left-1 top-[3px]"
+          class="cart-icon"
           viewBox="0 0 16 17"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -111,27 +97,21 @@
             fill="white"
           />
         </svg>
-        <div
-          class="absolute left-[13px] -top-[7px] flex items-center justify-center w-4 h-4 px-1 bg-[#EE4536] rounded-lg"
-        >
-          <span class="text-[#FFEFEB] font-questrial text-xs leading-4">{{
-            cartCount
-          }}</span>
+        <div class="cart-badge">
+          <span>{{ cartCount }}</span>
         </div>
       </div>
-      <span
-        class="hidden md:inline text-white font-montserrat text-sm font-semibold tracking-tight"
-        >Cart</span
-      >
+      <span class="cart-text">Cart</span>
     </button>
 
     <!-- Sign In Button -->
     <button
+      pButton
+      type="button"
+      label="Sign in"
+      class="signin-btn"
       (click)="openLogin()"
-      class="px-6 py-3 border border-white rounded text-white font-rubik text-sm font-semibold tracking-tight hover:bg-white hover:text-background transition-colors"
-    >
-      Sign in
-    </button>
+    ></button>
   </div>
 </header>
 
