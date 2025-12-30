@@ -392,21 +392,6 @@
   color: #fbbf24;
 }
 
-/* Override PrimeNG CTA Button Styles */
-::ng-deep .contact-cta-button.p-button {
-  background-color: transparent;
-  border: 2px solid black;
-  color: black;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-::ng-deep .contact-cta-button.p-button:hover {
-  background-color: black;
-  border-color: black;
-  color: #fbbf24;
-}
 
 .contact-cta-spoon {
   position: absolute;
