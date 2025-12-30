@@ -17,12 +17,14 @@ interface Product {
 
 @Component({
   selector: "app-products",
-  imports: [CommonModule, ButtonModule],
+  imports: [CommonModule, ButtonModule, ToastModule],
+  providers: [MessageService],
   templateUrl: "./products.component.html",
   styleUrl: "./products.component.css",
 })
 export class ProductsComponent {
   cartService = inject(CartService);
+  messageService = inject(MessageService);
 
   products: Product[] = [
     {
