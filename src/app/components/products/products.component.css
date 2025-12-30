@@ -1,1 +1,183 @@
-/* Additional component-specific styles if needed */
+.products-section {
+  background-color: #000000;
+  padding: 4rem 0;
+}
+
+@media (min-width: 1024px) {
+  .products-section {
+    padding: 6rem 0;
+  }
+}
+
+.products-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 1024px) {
+  .products-container {
+    padding: 0 8rem;
+  }
+}
+
+.products-title {
+  font-size: 1.875rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 3rem;
+  letter-spacing: -0.0125em;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  background-color: #d9d9d9;
+  height: 204px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.product-image-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-image-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 188px;
+  height: 186px;
+  object-fit: contain;
+}
+
+.veg-indicator {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 18px;
+  height: 18px;
+}
+
+.veg-badge {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #4db724;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.veg-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #4db724;
+}
+
+.product-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.0125em;
+}
+
+.product-price {
+  font-size: 1.375rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #fbbf24;
+  margin: 0;
+  letter-spacing: -0.0125em;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.0125em;
+}
+
+.see-all-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.see-all-btn {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+}
+
+/* Override PrimeNG Button Styles */
+::ng-deep .add-to-cart-btn.p-button {
+  background-color: transparent;
+  border: 2px solid #b10a09;
+  color: #b10a09;
+  padding: 0;
+}
+
+::ng-deep .add-to-cart-btn.p-button:hover {
+  background-color: #b10a09;
+  border-color: #b10a09;
+  color: white;
+}
+
+::ng-deep .see-all-btn.p-button {
+  background-color: transparent;
+  border: 1px solid #ee4536;
+  color: #ee4536;
+}
+
+::ng-deep .see-all-btn.p-button:hover {
+  background-color: #ee4536;
+  border-color: #ee4536;
+  color: white;
+}
