@@ -100,6 +100,11 @@
 .contact-form {
   display: flex;
   flex-direction: column;
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 2rem;
+  gap: 1.5rem;
 }
 
 .contact-form-fields {
