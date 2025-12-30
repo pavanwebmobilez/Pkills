@@ -39,6 +39,12 @@
   height: 84.718px;
   width: 185.167px;
   object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.header-container.scrolled .logo-image {
+  height: 60px;
+  width: 130.5px;
 }
 
 .nav-desktop {
