@@ -1,10 +1,10 @@
 <!-- Hero Section with Gradient Heading -->
-<section class="relative bg-background py-16 lg:py-24">
-  <div class="container mx-auto px-8 lg:px-32">
-    <div class="flex flex-col items-center gap-2 max-w-[948px] mx-auto">
+<section class="about-page-hero">
+  <div class="about-page-container">
+    <div class="about-page-hero-content">
       <!-- Decorative Icon -->
       <svg
-        class="w-14 h-13 fill-pkills-yellow mb-4"
+        class="about-page-icon"
         viewBox="0 0 56 52"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -48,21 +48,15 @@
       </svg>
 
       <!-- About Us Label -->
-      <div class="text-pkills-yellow font-montserrat text-[15px] font-medium">
-        ABOUT US
-      </div>
+      <div class="about-page-label">ABOUT US</div>
 
       <!-- Main Heading with Gradient -->
-      <h1
-        class="text-4xl lg:text-[40px] font-montserrat font-medium text-center leading-tight lg:leading-[64px] bg-gradient-to-r from-pkills-yellow to-pkills-red bg-clip-text text-transparent"
-      >
+      <h1 class="about-page-heading">
         Where Tradition Meets Taste in Every Jar!
       </h1>
 
       <!-- Description -->
-      <p
-        class="text-[#CECECE] font-montserrat text-[15px] text-center max-w-[667px] leading-relaxed"
-      >
+      <p class="about-page-description">
         At <span class="font-bold">Pkills</span>, we craft authentic, homemade
         pickles bursting with flavour and love. Each jar brings you the perfect
         blend of spice, crunch, and heritage right to your table.
@@ -72,104 +66,78 @@
 </section>
 
 <!-- Stats Section -->
-<section class="bg-pkills-red py-20">
-  <div class="container mx-auto px-8 lg:px-32">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<section class="about-page-stats">
+  <div class="about-page-container">
+    <div class="stats-grid">
       <!-- Stat 1 -->
-      <div class="flex flex-col items-start gap-6">
-        <div
-          class="text-white font-general-sans text-5xl lg:text-[64px] font-medium leading-tight"
-        >
-          28+
-        </div>
-        <div class="text-white font-general-sans text-xl font-medium">
-          Available Countries
-        </div>
+      <div class="stat-item">
+        <div class="stat-number">28+</div>
+        <div class="stat-label">Available Countries</div>
       </div>
 
-      <div class="w-px bg-white/20 hidden lg:block"></div>
+      <div class="stat-divider"></div>
 
       <!-- Stat 2 -->
-      <div class="flex flex-col items-start gap-6">
-        <div class="text-white font-general-sans font-medium leading-tight">
-          <span class="text-[64px]">80</span><span class="text-5xl">K</span>
-        </div>
-        <div class="text-white font-general-sans text-xl font-medium">
-          Monthly couriers
-        </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-large">80</span><span class="stat-small">K</span></div>
+        <div class="stat-label">Monthly couriers</div>
       </div>
 
-      <div class="w-px bg-white/20 hidden lg:block"></div>
+      <div class="stat-divider"></div>
 
       <!-- Stat 3 -->
-      <div class="flex flex-col items-start gap-6">
-        <div
-          class="text-white font-general-sans text-5xl lg:text-[64px] font-medium leading-tight"
-        >
-          120+
-        </div>
-        <div class="text-white font-general-sans text-xl font-medium">
-          Monthly local stores
-        </div>
+      <div class="stat-item">
+        <div class="stat-number">120+</div>
+        <div class="stat-label">Monthly local stores</div>
       </div>
 
-      <div class="w-px bg-white/20 hidden lg:block"></div>
+      <div class="stat-divider"></div>
 
       <!-- Stat 4 -->
-      <div class="flex flex-col items-start gap-6">
-        <div class="text-white font-general-sans font-medium leading-tight">
-          <span class="text-[64px]">4.2</span><span class="text-5xl">K</span>
-        </div>
-        <div class="text-white font-general-sans text-xl font-medium">
-          Employees
-        </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-large">4.2</span><span class="stat-small">K</span></div>
+        <div class="stat-label">Employees</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- World Map Section -->
-<section class="bg-black py-20">
-  <div class="container mx-auto px-8 lg:px-32">
-    <h2
-      class="text-4xl lg:text-5xl font-montserrat font-medium text-white text-center mb-14 max-w-[770px] mx-auto"
-    >
+<section class="about-page-map">
+  <div class="about-page-container">
+    <h2 class="about-page-map-heading">
       +1.200 Cities Across The Globe
     </h2>
-    <div class="flex justify-center">
+    <div class="about-page-map-wrapper">
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/cb3b25ad4771b95dd07d7fabdcb1777b5573a4b7?width=2400"
         alt="World Map showing PKILLS global presence"
-        class="w-full max-w-[1200px] h-auto"
+        class="about-page-map-image"
       />
     </div>
   </div>
 </section>
 
 <!-- What Sets Us Apart Section -->
-<section class="bg-background py-20">
-  <div class="container mx-auto px-8 lg:px-32">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+<section class="about-page-section">
+  <div class="about-page-container">
+    <div class="about-page-two-column">
       <!-- Left Image -->
-      <div class="order-2 lg:order-1">
+      <div class="about-page-image-column">
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/9cc26e0c3b069dfb923a81e4a83e6be71db1936b?width=1100"
           alt="What Sets Us Apart"
-          class="w-full max-w-[550px] h-auto"
+          class="about-page-image"
         />
       </div>
 
       <!-- Right Content -->
-      <div class="order-1 lg:order-2 flex flex-col gap-14">
-        <div class="flex flex-col gap-5">
-          <h2
-            class="text-4xl lg:text-5xl font-montserrat font-medium text-[#EFEFEF]"
-          >
+      <div class="about-page-content-column">
+        <div class="about-page-section-content">
+          <h2 class="about-page-section-heading">
             What Sets Us Apart
           </h2>
-          <div
-            class="text-[#BEBEBE] font-general-sans text-lg leading-relaxed space-y-4"
-          >
+          <div class="about-page-section-text">
             <p>
               At Foodie Express, we take pride in our commitment to quality,
               variety, and customer satisfaction. We partner with renowned
@@ -190,20 +158,16 @@
 </section>
 
 <!-- Our Promise Section -->
-<section class="bg-background py-20">
-  <div class="container mx-auto px-8 lg:px-32">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+<section class="about-page-section">
+  <div class="about-page-container">
+    <div class="about-page-two-column about-page-reverse">
       <!-- Left Content -->
-      <div class="flex flex-col gap-14">
-        <div class="flex flex-col gap-5">
-          <h2
-            class="text-4xl lg:text-5xl font-general-sans font-medium text-[#EFEFEF]"
-          >
+      <div class="about-page-content-column">
+        <div class="about-page-section-content">
+          <h2 class="about-page-section-heading">
             Our Promise
           </h2>
-          <div
-            class="text-[#BEBEBE] font-general-sans text-lg leading-relaxed space-y-4"
-          >
+          <div class="about-page-section-text">
             <p>
               We promise to deliver more than just meals. We promise convenience
               on busy days, indulgence on special occasions, and a helping hand
@@ -220,14 +184,12 @@
       </div>
 
       <!-- Right Image -->
-      <div class="relative">
-        <div
-          class="w-full max-w-[550px] h-[500px] rounded-[30px] bg-pkills-dark-gray overflow-hidden"
-        >
+      <div class="about-page-image-column">
+        <div class="about-page-image-wrapper">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/bad333b1c8013b233afd9a93fbc7bd3494e1d7bc?width=1630"
             alt="Our Promise"
-            class="w-full h-full object-cover transform -translate-x-14 -translate-y-8 scale-150"
+            class="about-page-image about-page-image-transform"
           />
         </div>
       </div>
