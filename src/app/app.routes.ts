@@ -39,4 +39,11 @@ export const routes: Routes = [
         (m) => m.TermsAndConditionsComponent,
       ),
   },
+  {
+    path: "checkout",
+    loadComponent: () =>
+      import("./pages/checkout/checkout.component").then(
+        (m) => m.CheckoutComponent,
+      ),
+  },
 ];
