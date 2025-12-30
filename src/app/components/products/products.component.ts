@@ -1,6 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ButtonModule } from "primeng/button";
+import { ToastModule } from "primeng/toast";
+import { MessageService } from "primeng/api";
 import { CartService } from "../../services/cart.service";
 
 interface Product {
