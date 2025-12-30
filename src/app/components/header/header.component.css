@@ -5,9 +5,19 @@
   padding: 1rem 2rem;
   height: 120px;
   background-color: rgba(0, 0, 0, 0.5);
-  position: relative;
-  z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   gap: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.header-container.scrolled {
+  height: 80px;
+  padding: 0.75rem 2rem;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 1024px) {
