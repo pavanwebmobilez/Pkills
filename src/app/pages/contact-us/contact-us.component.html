@@ -111,6 +111,7 @@
                   placeholder="How we can help?"
                   rows="5"
                   class="contact-form-textarea"
+                  (blur)="markFieldAsTouched('description')"
                 ></textarea>
               </div>
             </div>
