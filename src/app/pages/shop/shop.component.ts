@@ -18,7 +18,7 @@ interface Product {
 
 @Component({
   selector: "app-shop",
-  imports: [CommonModule, FormsModule, FiltersPopupComponent],
+  imports: [CommonModule, FormsModule, ButtonModule, InputTextModule, FiltersPopupComponent],
   templateUrl: "./shop.component.html",
   styleUrl: "./shop.component.css",
 })
