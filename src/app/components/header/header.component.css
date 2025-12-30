@@ -1,1 +1,225 @@
-/* Additional component-specific styles if needed */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 120px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 50;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 1rem 2rem;
+  }
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-section a {
+  text-decoration: none;
+}
+
+.logo-image {
+  height: 84.718px;
+  width: 185.167px;
+  object-fit: contain;
+}
+
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 3.875rem;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex;
+  }
+}
+
+.nav-link {
+  position: relative;
+  color: #c4c4c4;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.active-indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 14px;
+  height: 3px;
+  background-color: #b10a09;
+  border-radius: 10px;
+}
+
+.actions-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.currency-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .currency-btn {
+    display: flex;
+  }
+}
+
+.currency-flag {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+.currency-text {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+}
+
+.currency-arrow {
+  width: 10px;
+  height: 6px;
+  stroke: white;
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+}
+
+.cart-btn:hover {
+  opacity: 0.8;
+}
+
+.cart-icon-wrapper {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.cart-icon {
+  width: 1rem;
+  height: 1.0625rem;
+  position: absolute;
+  left: 0.25rem;
+  top: 0.1875rem;
+}
+
+.cart-badge {
+  position: absolute;
+  left: 0.8125rem;
+  top: -0.4375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  padding: 0 0.25rem;
+  background-color: #ee4536;
+  border-radius: 0.5rem;
+}
+
+.cart-badge span {
+  color: #ffefeb;
+  font-family: 'Questrial', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.cart-text {
+  display: none;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+}
+
+@media (min-width: 768px) {
+  .cart-text {
+    display: inline;
+  }
+}
+
+.signin-btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signin-btn:hover {
+  background-color: white;
+  color: #000000;
+}
+
+/* Override PrimeNG Button Styles */
+::ng-deep .signin-btn.p-button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+::ng-deep .signin-btn.p-button:hover {
+  background-color: white;
+  color: #000000;
+  border-color: white;
+}
+
+::ng-deep .currency-btn.p-button,
+::ng-deep .cart-btn.p-button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+::ng-deep .currency-btn.p-button:hover,
+::ng-deep .cart-btn.p-button:hover {
+  background: none;
+}
