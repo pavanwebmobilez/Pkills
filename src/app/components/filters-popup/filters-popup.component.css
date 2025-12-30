@@ -53,7 +53,7 @@
 
 .filters-title {
   color: #161010;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.875rem;
   font-weight: 700;
   margin: 0;
@@ -95,7 +95,7 @@
 
 .filter-section-title {
   color: #161010;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
@@ -130,7 +130,7 @@
 }
 
 .filter-checkbox.checked {
-  color: #F83232;
+  color: #f83232;
 }
 
 .filter-checkbox.unchecked {
@@ -139,7 +139,7 @@
 
 .filter-label {
   color: #161010;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9375rem;
   font-weight: 500;
   white-space: nowrap;

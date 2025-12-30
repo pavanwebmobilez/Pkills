@@ -1,20 +1,9 @@
 <!-- Backdrop -->
-<div
-  *ngIf="isOpen()"
-  class="login-backdrop"
-  (click)="closePopup()"
->
+<div *ngIf="isOpen()" class="login-backdrop" (click)="closePopup()">
   <!-- Popup Container -->
-  <div
-    class="login-popup"
-    (click)="$event.stopPropagation()"
-  >
+  <div class="login-popup" (click)="$event.stopPropagation()">
     <!-- Close Button -->
-    <button
-      (click)="closePopup()"
-      class="login-close-btn"
-      aria-label="Close"
-    >
+    <button (click)="closePopup()" class="login-close-btn" aria-label="Close">
       <svg
         class="close-icon"
         viewBox="0 0 18 18"
@@ -125,16 +114,10 @@
       <!-- Buttons -->
       <div class="form-buttons">
         <!-- Login Button -->
-        <button type="submit" class="login-btn">
-          Login
-        </button>
+        <button type="submit" class="login-btn">Login</button>
 
         <!-- Register Button -->
-        <button
-          type="button"
-          (click)="onRegister()"
-          class="register-btn"
-        >
+        <button type="button" (click)="onRegister()" class="register-btn">
           Register
         </button>
       </div>
@@ -148,11 +131,7 @@
     </div>
 
     <!-- Google Login Button -->
-    <button
-      type="button"
-      (click)="onGoogleLogin()"
-      class="google-login-btn"
-    >
+    <button type="button" (click)="onGoogleLogin()" class="google-login-btn">
       <svg
         class="google-icon"
         viewBox="0 0 24 24"

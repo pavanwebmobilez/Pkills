@@ -1,14 +1,7 @@
 <!-- Backdrop -->
-<div
-  *ngIf="isOpen()"
-  class="filters-backdrop"
-  (click)="closeFilters()"
->
+<div *ngIf="isOpen()" class="filters-backdrop" (click)="closeFilters()">
   <!-- Popup Container -->
-  <div
-    class="filters-popup"
-    (click)="$event.stopPropagation()"
-  >
+  <div class="filters-popup" (click)="$event.stopPropagation()">
     <!-- Header -->
     <div class="filters-header">
       <h2 class="filters-title">Filters</h2>
@@ -39,14 +32,9 @@
     <div class="filters-content">
       <!-- Sort By -->
       <div class="filter-section">
-        <h3 class="filter-section-title">
-          Sort By :
-        </h3>
+        <h3 class="filter-section-title">Sort By :</h3>
         <div class="filter-options">
-          <button
-            (click)="setSortBy('featured')"
-            class="filter-option"
-          >
+          <button (click)="setSortBy('featured')" class="filter-option">
             <svg
               *ngIf="filters.sortBy === 'featured'"
               class="filter-checkbox checked"
@@ -80,10 +68,7 @@
             <span class="filter-label">Featured</span>
           </button>
 
-          <button
-            (click)="setSortBy('lowToHigh')"
-            class="filter-option"
-          >
+          <button (click)="setSortBy('lowToHigh')" class="filter-option">
             <svg
               *ngIf="filters.sortBy === 'lowToHigh'"
               class="filter-checkbox checked"
@@ -117,10 +102,7 @@
             <span class="filter-label">Low to high</span>
           </button>
 
-          <button
-            (click)="setSortBy('highToLow')"
-            class="filter-option"
-          >
+          <button (click)="setSortBy('highToLow')" class="filter-option">
             <svg
               *ngIf="filters.sortBy === 'highToLow'"
               class="filter-checkbox checked"
@@ -154,10 +136,7 @@
             <span class="filter-label">High to low</span>
           </button>
 
-          <button
-            (click)="setSortBy('all')"
-            class="filter-option"
-          >
+          <button (click)="setSortBy('all')" class="filter-option">
             <svg
               *ngIf="filters.sortBy === 'all'"
               class="filter-checkbox checked"
@@ -197,10 +176,7 @@
       <div class="filter-section">
         <h3 class="filter-section-title">Type :</h3>
         <div class="filter-options">
-          <button
-            (click)="setType('veg')"
-            class="filter-option"
-          >
+          <button (click)="setType('veg')" class="filter-option">
             <svg
               *ngIf="filters.type === 'veg'"
               class="filter-checkbox checked"
@@ -234,10 +210,7 @@
             <span class="filter-label">Veg</span>
           </button>
 
-          <button
-            (click)="setType('nonVeg')"
-            class="filter-option"
-          >
+          <button (click)="setType('nonVeg')" class="filter-option">
             <svg
               *ngIf="filters.type === 'nonVeg'"
               class="filter-checkbox checked"
@@ -271,10 +244,7 @@
             <span class="filter-label">Non-veg</span>
           </button>
 
-          <button
-            (click)="setType('all')"
-            class="filter-option"
-          >
+          <button (click)="setType('all')" class="filter-option">
             <svg
               *ngIf="filters.type === 'all'"
               class="filter-checkbox checked"
@@ -312,18 +282,13 @@
 
       <!-- Spice Level -->
       <div class="filter-section">
-        <h3 class="filter-section-title">
-          Spice Level :
-        </h3>
+        <h3 class="filter-section-title">Spice Level :</h3>
         <div class="filter-options">
           @for (
             level of ["mild", "medium", "spicy", "extraSpicy", "all"];
             track level
           ) {
-            <button
-              (click)="setSpiceLevel(level)"
-              class="filter-option"
-            >
+            <button (click)="setSpiceLevel(level)" class="filter-option">
               <svg
                 *ngIf="filters.spiceLevel === level"
                 class="filter-checkbox checked"
@@ -354,9 +319,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              <span
-                class="filter-label"
-              >
+              <span class="filter-label">
                 {{
                   level === "mild"
                     ? "Mild"
@@ -376,15 +339,10 @@
 
       <!-- Weight -->
       <div class="filter-section">
-        <h3 class="filter-section-title">
-          Weight :
-        </h3>
+        <h3 class="filter-section-title">Weight :</h3>
         <div class="filter-options">
           @for (weight of ["1lb", "2lb", "3lb", "anySize"]; track weight) {
-            <button
-              (click)="setWeight(weight)"
-              class="filter-option"
-            >
+            <button (click)="setWeight(weight)" class="filter-option">
               <svg
                 *ngIf="filters.weight === weight"
                 class="filter-checkbox checked"
@@ -415,9 +373,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              <span
-                class="filter-label"
-              >
+              <span class="filter-label">
                 {{
                   weight === "1lb"
                     ? "1 lb"

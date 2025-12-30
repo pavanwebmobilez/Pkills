@@ -87,7 +87,7 @@
 
 .caption-text {
   color: #fbbf24;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: -0.0125em;
@@ -105,7 +105,7 @@
   font-weight: 500;
   letter-spacing: -0.0125em;
   color: white;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   margin: 0;
 }
 
@@ -125,7 +125,7 @@
 
 .hero-description {
   font-size: 1rem;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
   color: #bdbdbd;
   line-height: 1.5;
   letter-spacing: -0.0125em;
@@ -143,7 +143,7 @@
   border-radius: 0.5rem;
   background-color: #b10a09;
   color: white;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.0125em;

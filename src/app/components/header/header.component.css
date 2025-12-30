@@ -47,7 +47,7 @@
 .nav-link {
   position: relative;
   color: #c4c4c4;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: -0.0125em;
@@ -103,7 +103,7 @@
 
 .currency-text {
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: -0.0125em;
@@ -160,7 +160,7 @@
 
 .cart-badge span {
   color: #ffefeb;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
   font-size: 0.75rem;
   line-height: 1rem;
 }
@@ -168,7 +168,7 @@
 .cart-text {
   display: none;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: -0.0125em;
@@ -185,7 +185,7 @@
   border: 1px solid white;
   border-radius: 0.25rem;
   color: white;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: -0.0125em;

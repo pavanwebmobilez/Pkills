@@ -2,9 +2,7 @@
   <div class="testimonials-container">
     <!-- Section Title -->
     <div class="testimonials-header">
-      <h2 class="testimonials-title">
-        What our customers say about us.
-      </h2>
+      <h2 class="testimonials-title">What our customers say about us.</h2>
     </div>
 
     <!-- Testimonials Carousel -->
@@ -13,7 +11,9 @@
       <div class="testimonials-grid">
         @for (testimonial of visibleTestimonials; track testimonial.id) {
           <div
-            [class]="'testimonial-card ' + (testimonial.featured ? 'featured' : '')"
+            [class]="
+              'testimonial-card ' + (testimonial.featured ? 'featured' : '')
+            "
           >
             <!-- Quote Icon -->
             <svg
@@ -51,7 +51,9 @@
                   fill="#AF0A09"
                 />
               </svg>
-              <span class="testimonial-rating-value">{{ testimonial.rating }}</span>
+              <span class="testimonial-rating-value">{{
+                testimonial.rating
+              }}</span>
             </div>
 
             <!-- Customer Info -->

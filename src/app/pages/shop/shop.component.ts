@@ -20,7 +20,14 @@ interface Product {
 
 @Component({
   selector: "app-shop",
-  imports: [CommonModule, FormsModule, ButtonModule, InputTextModule, ToastModule, FiltersPopupComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    InputTextModule,
+    ToastModule,
+    FiltersPopupComponent,
+  ],
   providers: [MessageService],
   templateUrl: "./shop.component.html",
   styleUrl: "./shop.component.css",

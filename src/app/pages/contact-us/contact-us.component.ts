@@ -10,7 +10,15 @@ import { TestimonialsComponent } from "../../components/testimonials/testimonial
 
 @Component({
   selector: "app-contact-us",
-  imports: [CommonModule, FormsModule, RouterLink, InputTextModule, ButtonModule, ToastModule, TestimonialsComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    InputTextModule,
+    ButtonModule,
+    ToastModule,
+    TestimonialsComponent,
+  ],
   providers: [MessageService],
   templateUrl: "./contact-us.component.html",
   styleUrl: "./contact-us.component.css",

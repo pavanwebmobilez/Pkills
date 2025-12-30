@@ -1,14 +1,8 @@
 <!-- Backdrop -->
-<div
-  *ngIf="isOpen"
-  class="cart-backdrop"
-  (click)="closeCart()"
-></div>
+<div *ngIf="isOpen" class="cart-backdrop" (click)="closeCart()"></div>
 
 <!-- Cart Sidebar -->
-<div
-  [class]="'cart-sidebar ' + (isOpen ? 'open' : '')"
->
+<div [class]="'cart-sidebar ' + (isOpen ? 'open' : '')">
   <div class="cart-content">
     <!-- Header -->
     <div class="cart-header">
@@ -141,12 +135,7 @@
         </p>
 
         <!-- Checkout Button -->
-        <a
-          routerLink="/checkout"
-          class="checkout-btn"
-        >
-          Check Out
-        </a>
+        <a routerLink="/checkout" class="checkout-btn"> Check Out </a>
       </div>
     }
   </div>

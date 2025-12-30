@@ -23,7 +23,7 @@
 
 .products-title {
   font-size: 1.875rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   color: white;
   margin-bottom: 3rem;
@@ -116,7 +116,7 @@
 
 .product-name {
   font-size: 1.25rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: white;
   margin-bottom: 0.5rem;
@@ -125,7 +125,7 @@
 
 .product-price {
   font-size: 1.375rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #fbbf24;
   margin: 0;
@@ -136,7 +136,7 @@
   width: 100%;
   height: 60px;
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: -0.0125em;
@@ -150,7 +150,7 @@
 .see-all-btn {
   padding: 1rem 2rem;
   border-radius: 0.5rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.0125em;
@@ -228,7 +228,7 @@
 }
 
 ::ng-deep .p-toast-summary {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-size: 1.125rem !important;
   font-weight: 600 !important;
   color: #171717 !important;
@@ -236,7 +236,7 @@
 }
 
 ::ng-deep .p-toast-detail {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-size: 0.95rem !important;
   color: #333333 !important;
   line-height: 1.4;

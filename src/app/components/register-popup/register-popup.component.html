@@ -1,14 +1,7 @@
 <!-- Backdrop -->
-<div
-  *ngIf="isOpen()"
-  class="register-backdrop"
-  (click)="closePopup()"
->
+<div *ngIf="isOpen()" class="register-backdrop" (click)="closePopup()">
   <!-- Popup Container -->
-  <div
-    class="register-popup"
-    (click)="$event.stopPropagation()"
-  >
+  <div class="register-popup" (click)="$event.stopPropagation()">
     <!-- Close Button -->
     <button
       (click)="closePopup()"
@@ -129,9 +122,7 @@
       <!-- Buttons -->
       <div class="form-buttons">
         <!-- Register Button -->
-        <button type="submit" class="register-btn">
-          Register
-        </button>
+        <button type="submit" class="register-btn">Register</button>
 
         <!-- Back to Login Button -->
         <button
@@ -152,11 +143,7 @@
     </div>
 
     <!-- Google Login Button -->
-    <button
-      type="button"
-      (click)="onGoogleLogin()"
-      class="google-login-btn"
-    >
+    <button type="button" (click)="onGoogleLogin()" class="google-login-btn">
       <svg
         class="google-icon"
         viewBox="0 0 24 24"
