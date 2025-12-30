@@ -178,7 +178,24 @@ export class ShopComponent {
   }
 
   get paginatedProducts() {
-    return this.filteredProducts;
+    let products = this.filteredProducts;
+    const filters = this.filterService.filterState();
+
+    // Apply type filter (Veg/Non-Veg)
+    if (filters.type !== "all") {
+      products = products.filter((p) =>
+        filters.type === "veg" ? p.isVeg : !p.isVeg,
+      );
+    }
+
+    // Apply sorting
+    if (filters.sortBy === "lowToHigh") {
+      products = [...products].sort((a, b) => a.priceValue - b.priceValue);
+    } else if (filters.sortBy === "highToLow") {
+      products = [...products].sort((a, b) => b.priceValue - a.priceValue);
+    }
+
+    return products;
   }
 
   addToCart(product: Product) {
