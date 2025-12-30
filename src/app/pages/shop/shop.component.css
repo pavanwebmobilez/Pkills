@@ -421,3 +421,104 @@
   background-color: #b10a09;
   color: white;
 }
+
+/* Toast Notification Styling */
+::ng-deep .p-toast {
+  top: 2rem !important;
+  right: 2rem !important;
+  left: auto !important;
+}
+
+::ng-deep .p-toast-message {
+  margin: 0 0 0.5rem 0 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%) !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.3) !important;
+  overflow: hidden;
+  animation: slideInRight 0.4s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+::ng-deep .p-toast-message.p-toast-message-success {
+  background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%) !important;
+}
+
+::ng-deep .p-toast-message-content {
+  padding: 1rem 1.5rem !important;
+  gap: 0.75rem !important;
+}
+
+::ng-deep .p-toast-message-icon {
+  font-size: 1.5rem !important;
+  color: #171717 !important;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+::ng-deep .p-toast-summary {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #171717 !important;
+  line-height: 1.4;
+}
+
+::ng-deep .p-toast-detail {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #333333 !important;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+::ng-deep .p-toast-message-success .p-toast-message-icon {
+  color: #b10a09 !important;
+}
+
+::ng-deep .p-toast-close-icon {
+  color: #171717 !important;
+  font-size: 1.25rem !important;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+::ng-deep .p-toast-close-icon:hover {
+  opacity: 1;
+}
+
+/* Responsive Toast */
+@media (max-width: 768px) {
+  ::ng-deep .p-toast {
+    top: 1rem !important;
+    right: 1rem !important;
+    left: 1rem !important;
+  }
+
+  ::ng-deep .p-toast-message {
+    margin-bottom: 0.5rem !important;
+  }
+
+  ::ng-deep .p-toast-message-content {
+    padding: 0.75rem 1rem !important;
+  }
+
+  ::ng-deep .p-toast-summary {
+    font-size: 1rem !important;
+  }
+
+  ::ng-deep .p-toast-detail {
+    font-size: 0.875rem !important;
+  }
+}
