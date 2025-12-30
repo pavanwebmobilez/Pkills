@@ -201,15 +201,18 @@
 
 /* Override PrimeNG Button Styles for submit button */
 ::ng-deep .contact-submit-btn.p-button {
-  background-color: transparent;
-  border: 1px solid #b10a09;
-  color: #b10a09;
+  background: linear-gradient(135deg, var(--pkills-yellow), #fcd34d) !important;
+  color: #171717 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
 }
 
 ::ng-deep .contact-submit-btn.p-button:hover {
-  background-color: #b10a09;
-  border-color: #b10a09;
-  color: white;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.3) !important;
 }
 
 /* Override PrimeNG Input Styles */
