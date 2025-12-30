@@ -1,5 +1,6 @@
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { ButtonModule } from "primeng/button";
 import { CartService } from "../../services/cart.service";
 
 interface Product {
@@ -14,7 +15,7 @@ interface Product {
 
 @Component({
   selector: "app-products",
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonModule],
   templateUrl: "./products.component.html",
   styleUrl: "./products.component.css",
 })
