@@ -1,24 +1,80 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    @apply font-montserrat text-white antialiased;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-rubik;
-  }
+/* Global Styles for PKILLS */
+:root {
+  --primary-color: #fbbf24;
+  --primary-light: #fcd34d;
+  --primary-dark: #f59e0b;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --bg-primary: #000000;
+  --bg-secondary: #1f2937;
+  --border-radius: 0.5rem;
+  --font-family-primary: 'Montserrat', sans-serif;
+  --font-family-heading: 'Rubik', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family-primary);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+}
+
+/* PrimeNG Component Overrides */
+.p-button {
+  border-radius: var(--border-radius);
+}
+
+.p-button.p-button-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--bg-primary);
+}
+
+.p-button.p-button-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.p-inputtext {
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  border-color: #374151;
+  color: var(--text-primary);
+}
+
+.p-inputtext:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(251, 191, 36, 0.25);
+}
+
+.p-dialog .p-dialog-header {
+  background-color: var(--bg-secondary);
+  border-color: #374151;
+  padding: 1.5rem;
+}
+
+.p-dialog .p-dialog-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.p-component {
+  color: var(--text-primary);
+}
+
+/* Text Balance Utility */
+.text-balance {
+  text-wrap: balance;
 }
