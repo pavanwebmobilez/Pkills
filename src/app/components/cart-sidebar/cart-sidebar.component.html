@@ -1,31 +1,25 @@
 <!-- Backdrop -->
 <div
   *ngIf="isOpen"
-  class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+  class="cart-backdrop"
   (click)="closeCart()"
 ></div>
 
 <!-- Cart Sidebar -->
 <div
-  [class]="
-    'fixed top-0 right-0 h-full w-full sm:w-[600px] bg-background z-50 transition-transform duration-300 ease-in-out ' +
-    (isOpen ? 'translate-x-0' : 'translate-x-full')
-  "
-  style="right: 15px"
+  [class]="'cart-sidebar ' + (isOpen ? 'open' : '')"
 >
-  <div
-    class="h-full overflow-y-auto rounded-[20px] border border-[#464646] bg-background m-[26px] p-6"
-  >
+  <div class="cart-content">
     <!-- Header -->
-    <div class="flex items-center justify-between mb-12">
-      <h2 class="text-[#C4C4C4] font-montserrat text-3xl font-bold">Cart</h2>
+    <div class="cart-header">
+      <h2 class="cart-title">Cart</h2>
       <button
         (click)="closeCart()"
-        class="w-6 h-6 flex items-center justify-center hover:opacity-70 transition-opacity"
+        class="cart-close-btn"
         aria-label="Close cart"
       >
         <svg
-          class="w-6 h-6"
+          class="close-icon"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,68 +35,48 @@
     </div>
 
     <!-- Cart Items -->
-    <div class="flex flex-col gap-5 mb-8">
+    <div class="cart-items">
       @if (items.length === 0) {
-        <div class="text-center py-12">
-          <p class="text-[#C4C4C4] font-montserrat text-lg">
-            Your cart is empty
-          </p>
+        <div class="cart-empty">
+          <p class="empty-text">Your cart is empty</p>
         </div>
       } @else {
         @for (item of items; track item.id) {
-          <div class="flex items-start gap-4 relative">
+          <div class="cart-item">
             <!-- Product Image -->
-            <div class="relative w-[169px] h-[122px] flex-shrink-0">
-              <div
-                class="w-full h-full rounded-[20px] bg-[#D9D9D9] overflow-hidden"
-              >
+            <div class="cart-item-image">
+              <div class="product-image-box">
                 <img
                   [src]="item.image"
                   [alt]="item.name"
-                  class="w-full h-full object-contain p-4"
+                  class="product-image"
                 />
               </div>
               <!-- Veg/Non-Veg Indicator -->
               <div
-                class="absolute top-4 right-4 w-[18px] h-[18px] rounded-[3px] border flex items-center justify-center"
-                [class.border-[#4DB724]]="item.isVeg"
-                [class.border-[#AF0A09]]="!item.isVeg"
+                [class]="'veg-indicator ' + (item.isVeg ? 'veg' : 'non-veg')"
               >
-                <div
-                  class="w-[11px] h-[11px] rounded-full"
-                  [class.bg-[#4DB724]]="item.isVeg"
-                  [class.bg-[#AF0A09]]="!item.isVeg"
-                ></div>
+                <div class="veg-dot"></div>
               </div>
             </div>
 
             <!-- Product Details -->
-            <div class="flex-1">
-              <h3
-                class="text-white font-montserrat text-xl font-medium tracking-tight mb-1"
-              >
-                {{ item.name }}
-              </h3>
-              <p class="text-[#C4C4C4] font-montserrat text-base font-medium">
-                {{ item.weight }}
-              </p>
-              <p
-                class="text-[#C4C4C4] font-montserrat text-[22px] font-bold tracking-tight mt-3"
-              >
-                ${{ item.price.toFixed(2) }}
-              </p>
+            <div class="cart-item-details">
+              <h3 class="item-name">{{ item.name }}</h3>
+              <p class="item-weight">{{ item.weight }}</p>
+              <p class="item-price">${{ item.price.toFixed(2) }}</p>
             </div>
 
             <!-- Quantity Controls -->
-            <div class="flex items-center gap-1">
+            <div class="quantity-controls">
               <!-- Decrease Button -->
               <button
                 (click)="decreaseQuantity(item.id, item.quantity)"
-                class="w-[30px] h-[30px] rounded-full border border-pkills-red flex items-center justify-center hover:bg-pkills-red/10 transition-colors"
+                class="qty-btn qty-decrease"
                 aria-label="Decrease quantity"
               >
                 <svg
-                  class="w-4 h-4"
+                  class="qty-icon"
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,12 +92,8 @@
               </button>
 
               <!-- Quantity Display -->
-              <div
-                class="h-[26px] px-[9px] py-[2px] rounded-xl bg-[#F9F9F9] flex items-center justify-center min-w-[35px]"
-              >
-                <span
-                  class="text-background font-montserrat text-sm font-medium"
-                >
+              <div class="qty-display">
+                <span class="qty-value">
                   {{ item.quantity.toString().padStart(2, "0") }}
                 </span>
               </div>
@@ -131,11 +101,11 @@
               <!-- Increase Button -->
               <button
                 (click)="increaseQuantity(item.id, item.quantity)"
-                class="w-[30px] h-[30px] rounded-full bg-pkills-red flex items-center justify-center hover:bg-pkills-red/90 transition-colors"
+                class="qty-btn qty-increase"
                 aria-label="Increase quantity"
               >
                 <svg
-                  class="w-4 h-4"
+                  class="qty-icon"
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -158,28 +128,22 @@
 
     <!-- Footer -->
     @if (items.length > 0) {
-      <div class="mt-auto pt-6 border-t border-[#6F6F6F]">
+      <div class="cart-footer">
         <!-- Total -->
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-white font-montserrat text-2xl font-medium">
-            Total
-          </span>
-          <span class="text-[#C4C4C4] font-montserrat text-2xl font-bold">
-            ${{ total.toFixed(2) }}
-          </span>
+        <div class="cart-total">
+          <span class="total-label">Total</span>
+          <span class="total-amount">${{ total.toFixed(2) }}</span>
         </div>
 
         <!-- Shipping Notice -->
-        <p
-          class="text-[#C4C4C4] text-center font-montserrat text-base font-medium mb-6"
-        >
+        <p class="shipping-notice">
           Taxes, discounts and shipping calculated at checkout
         </p>
 
         <!-- Checkout Button -->
         <button
           (click)="checkout()"
-          class="w-full px-8 py-4 rounded-lg border border-pkills-red text-pkills-red font-rubik text-lg font-semibold tracking-tight hover:bg-pkills-red hover:text-white transition-colors"
+          class="checkout-btn"
         >
           Check Out
         </button>
