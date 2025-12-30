@@ -1,1 +1,178 @@
-/* Additional component-specific styles if needed */
+.hero-section {
+  position: relative;
+  min-height: 859px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #b10a09;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .hero-background {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-background {
+    width: 499px;
+  }
+}
+
+.background-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.pattern-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(13.88deg);
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    padding: 7rem 8rem;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 660px;
+}
+
+.caption-wrapper {
+  display: inline-flex;
+}
+
+.caption-badge {
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: rgba(251, 191, 36, 0.1);
+}
+
+.caption-text {
+  color: #fbbf24;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.0125em;
+}
+
+.heading-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-heading {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.0125em;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: 4.0625rem;
+    line-height: 1.2;
+  }
+}
+
+.hero-description {
+  font-size: 1rem;
+  font-family: 'Questrial', sans-serif;
+  color: #bdbdbd;
+  line-height: 1.5;
+  letter-spacing: -0.0125em;
+  max-width: 28rem;
+  margin: 0;
+}
+
+.cta-button-wrapper {
+  display: flex;
+}
+
+.hero-button {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+}
+
+.hero-image-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-image-section {
+    justify-content: flex-end;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 497px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Override PrimeNG Button Styles */
+::ng-deep .hero-button.p-button {
+  background-color: #b10a09;
+  border: none;
+}
+
+::ng-deep .hero-button.p-button:hover {
+  background-color: rgba(177, 10, 9, 0.9);
+  border: none;
+}
