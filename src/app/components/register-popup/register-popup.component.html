@@ -1,22 +1,22 @@
 <!-- Backdrop -->
 <div
   *ngIf="isOpen()"
-  class="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4"
+  class="register-backdrop"
   (click)="closePopup()"
 >
   <!-- Popup Container -->
   <div
-    class="bg-white rounded-[20px] w-full max-w-[420px] p-5 relative border border-[rgba(180,173,173,0.2)] shadow-[0_10px_40px_-4px_rgba(16,24,40,0.02),0_8px_8px_-4px_rgba(16,24,40,0.02)]"
+    class="register-popup"
     (click)="$event.stopPropagation()"
   >
     <!-- Close Button -->
     <button
       (click)="closePopup()"
-      class="absolute right-5 top-6 w-[34px] h-[31px] flex items-center justify-center rounded-[5px] bg-white hover:bg-gray-50 transition-colors"
+      class="register-close-btn"
       aria-label="Close"
     >
       <svg
-        class="w-[18px] h-[18px]"
+        class="close-icon"
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,91 +31,68 @@
     </button>
 
     <!-- Header -->
-    <div class="flex flex-col gap-[5px] mb-5">
-      <h2
-        class="text-[#161010] font-roboto text-[30px] font-bold leading-normal"
-      >
-        Create New Account
-      </h2>
-      <p
-        class="text-[#B4ADAD] font-roboto text-base font-normal leading-[26px]"
-      >
-        Please enter details
-      </p>
+    <div class="register-header">
+      <h2 class="register-title">Create New Account</h2>
+      <p class="register-subtitle">Please enter details</p>
     </div>
 
     <!-- Form -->
-    <form (ngSubmit)="onSubmit()" class="flex flex-col gap-[30px]">
+    <form (ngSubmit)="onSubmit()" class="register-form">
       <!-- Name, Email and Password Fields -->
-      <div class="flex flex-col gap-4">
+      <div class="form-fields">
         <!-- Name Field -->
-        <div class="flex flex-col gap-[2px]">
-          <label
-            for="register-name"
-            class="text-[#161010] font-roboto text-xs font-normal leading-5"
-          >
-            Name
-          </label>
+        <div class="form-group">
+          <label for="register-name" class="form-label">Name</label>
           <input
             id="register-name"
             type="text"
             [(ngModel)]="name"
             name="name"
             placeholder="Perry Watson"
-            class="w-full h-14 px-4 pt-4 pb-[14px] rounded-[10px] border border-pkills-red text-[#161010] font-roboto text-base font-normal leading-[26px] outline-none focus:border-pkills-red focus:ring-1 focus:ring-pkills-red"
+            class="form-input"
             required
           />
         </div>
 
         <!-- Email Field -->
-        <div class="flex flex-col gap-[2px]">
-          <label
-            for="register-email"
-            class="text-[#161010] font-roboto text-xs font-normal leading-5"
-          >
-            Email Address
-          </label>
+        <div class="form-group">
+          <label for="register-email" class="form-label">Email Address</label>
           <input
             id="register-email"
             type="email"
             [(ngModel)]="email"
             name="email"
             placeholder="perrywatson@example.com"
-            class="w-full h-14 px-4 pt-4 pb-[14px] rounded-[10px] border border-pkills-red text-[#161010] font-roboto text-base font-normal leading-[26px] outline-none focus:border-pkills-red focus:ring-1 focus:ring-pkills-red"
+            class="form-input"
             required
           />
         </div>
 
         <!-- Password Field -->
-        <div class="flex flex-col gap-[2px]">
-          <label
-            for="register-password"
-            class="text-[#161010] font-roboto text-xs font-normal leading-5"
-          >
-            Password
-          </label>
+        <div class="form-group">
+          <label for="register-password" class="form-label">Password</label>
           <input
             id="register-password"
             type="password"
             [(ngModel)]="password"
             name="password"
             placeholder="••••••••••••••••••"
-            class="w-full h-14 px-4 rounded-[10px] border border-pkills-red text-[#161010] font-poppins text-base font-normal outline-none focus:border-pkills-red focus:ring-1 focus:ring-pkills-red"
+            class="form-input"
             required
           />
         </div>
 
         <!-- Terms & Conditions Checkbox -->
-        <div class="flex items-center gap-[10px]">
-          <label class="flex items-center gap-[10px] cursor-pointer">
+        <div class="terms-checkbox">
+          <label class="terms-label">
             <button
               type="button"
               (click)="agreeToTerms = !agreeToTerms"
-              class="w-6 h-6 flex items-center justify-center"
+              class="checkbox-btn"
             >
               <svg
                 *ngIf="agreeToTerms"
-                class="w-6 h-6"
+                class="checkbox-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +106,7 @@
               </svg>
               <svg
                 *ngIf="!agreeToTerms"
-                class="w-6 h-6"
+                class="checkbox-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -144,22 +121,15 @@
                 />
               </svg>
             </button>
-            <span
-              class="text-[#161010] font-roboto text-base font-normal leading-[26px]"
-            >
-              I agree to the Terms & Conditions
-            </span>
+            <span class="terms-text">I agree to the Terms & Conditions</span>
           </label>
         </div>
       </div>
 
       <!-- Buttons -->
-      <div class="flex flex-col gap-[10px]">
+      <div class="form-buttons">
         <!-- Register Button -->
-        <button
-          type="submit"
-          class="w-full h-14 px-5 flex items-center justify-center rounded-[10px] bg-pkills-red text-white font-roboto text-base font-normal leading-[26px] hover:bg-[#8F0808] transition-colors"
-        >
+        <button type="submit" class="register-btn">
           Register
         </button>
 
@@ -167,7 +137,7 @@
         <button
           type="button"
           (click)="onBackToLogin()"
-          class="w-full h-14 px-5 flex items-center justify-center rounded-[10px] border border-pkills-red text-pkills-red font-roboto text-base font-normal leading-[26px] hover:bg-pkills-red hover:text-white transition-colors"
+          class="back-to-login-btn"
         >
           Back to Login
         </button>
@@ -175,24 +145,20 @@
     </form>
 
     <!-- Divider -->
-    <div class="flex items-center gap-4 my-5">
-      <div class="flex-1 h-[1px] bg-[rgba(180,173,173,0.2)]"></div>
-      <span
-        class="text-[#161010] text-center font-roboto text-sm font-normal leading-[22px]"
-      >
-        Or Login With
-      </span>
-      <div class="flex-1 h-[1px] bg-[rgba(180,173,173,0.2)]"></div>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">Or Login With</span>
+      <div class="divider-line"></div>
     </div>
 
     <!-- Google Login Button -->
     <button
       type="button"
       (click)="onGoogleLogin()"
-      class="w-full h-14 px-5 flex items-center justify-center gap-[10px] rounded-[10px] border border-[rgba(180,173,173,0.2)] hover:bg-gray-50 transition-colors"
+      class="google-login-btn"
     >
       <svg
-        class="w-6 h-6"
+        class="google-icon"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -222,11 +188,7 @@
           fill="#AF0A09"
         />
       </svg>
-      <span
-        class="text-[#161010] font-roboto text-base font-normal leading-[26px]"
-      >
-        Login with Google
-      </span>
+      <span class="google-text">Login with Google</span>
     </button>
   </div>
 </div>
