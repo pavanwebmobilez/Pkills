@@ -138,13 +138,23 @@
 }
 
 .hero-button {
+  display: inline-block;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
+  background-color: #b10a09;
   color: white;
   font-family: 'Rubik', sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.0125em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: rgba(177, 10, 9, 0.9);
 }
 
 .hero-image-section {
