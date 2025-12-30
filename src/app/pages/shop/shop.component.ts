@@ -1,6 +1,8 @@
 import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { ButtonModule } from "primeng/button";
+import { InputTextModule } from "primeng/inputtext";
 import { CartService } from "../../services/cart.service";
 import { FilterService } from "../../services/filter.service";
 import { FiltersPopupComponent } from "../../components/filters-popup/filters-popup.component";
