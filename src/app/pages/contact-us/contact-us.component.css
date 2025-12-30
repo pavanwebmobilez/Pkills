@@ -207,7 +207,21 @@
   border-radius: 8px !important;
   box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2) !important;
   font-weight: 600 !important;
+  font-size: 1rem !important;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 0.75rem 1.5rem !important;
+  min-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   transition: all 0.3s ease !important;
+}
+
+::ng-deep .contact-submit-btn.p-button .p-button-label {
+  color: #171717 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 ::ng-deep .contact-submit-btn.p-button:hover {
