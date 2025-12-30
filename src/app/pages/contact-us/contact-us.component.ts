@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from "@angular/router";
+import { ButtonModule } from "primeng/button";
+import { InputTextModule } from "primeng/inputtext";
 import { TestimonialsComponent } from "../../components/testimonials/testimonials.component";
 
 @Component({
