@@ -175,14 +175,3 @@
   height: auto;
   object-fit: contain;
 }
-
-/* Override PrimeNG Button Styles */
-::ng-deep .hero-button.p-button {
-  background-color: #b10a09;
-  border: none;
-}
-
-::ng-deep .hero-button.p-button:hover {
-  background-color: rgba(177, 10, 9, 0.9);
-  border: none;
-}
