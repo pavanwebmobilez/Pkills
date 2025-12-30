@@ -95,7 +95,11 @@
                   placeholder="Email address"
                   required
                   class="contact-form-input"
+                  (blur)="markFieldAsTouched('email')"
                 />
+                @if (fieldTouched.email && getEmailError()) {
+                  <span class="contact-form-error">{{ getEmailError() }}</span>
+                }
               </div>
 
               <!-- Description -->
