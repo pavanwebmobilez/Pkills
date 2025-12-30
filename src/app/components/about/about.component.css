@@ -1,1 +1,136 @@
-/* Additional component-specific styles if needed */
+.about-section {
+  background-color: black;
+  padding: 4rem 0;
+}
+
+@media (min-width: 1024px) {
+  .about-section {
+    padding: 6rem 0;
+  }
+}
+
+.about-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    padding: 0 8rem;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-image-wrapper {
+  order: 1;
+}
+
+@media (min-width: 1024px) {
+  .about-image-wrapper {
+    order: 0;
+  }
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  order: 0;
+}
+
+@media (min-width: 1024px) {
+  .about-content {
+    order: 1;
+  }
+}
+
+.about-caption-wrapper {
+  display: inline-flex;
+}
+
+.about-caption-badge {
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: rgba(251, 191, 36, 0.1);
+}
+
+.about-caption-text {
+  color: #fbbf24;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.0125em;
+}
+
+.about-heading {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .about-heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    text-align: left;
+  }
+}
+
+.about-description {
+  font-size: 0.875rem;
+  font-family: 'Questrial', sans-serif;
+  color: white;
+  line-height: 1.5;
+  letter-spacing: -0.0125em;
+  max-width: 516px;
+  margin: 0;
+}
+
+.about-button-wrapper {
+  margin-top: 1rem;
+}
+
+.about-button {
+  border-radius: 0.5rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.0125em;
+  padding: 1rem 2rem;
+}
+
+/* Override PrimeNG Button Styles */
+::ng-deep .about-button.p-button {
+  background-color: transparent;
+  border: 1px solid #b10a09;
+  color: #b10a09;
+}
+
+::ng-deep .about-button.p-button:hover {
+  background-color: #b10a09;
+  border-color: #b10a09;
+  color: white;
+}
