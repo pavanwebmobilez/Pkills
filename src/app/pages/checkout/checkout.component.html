@@ -1,0 +1,237 @@
+<div class="checkout-container">
+  <!-- Toast Notification -->
+  <p-toast></p-toast>
+
+  <!-- Hero Section -->
+  <section class="checkout-hero">
+    <div class="checkout-hero-content">
+      <h1 class="checkout-heading">Secure Checkout</h1>
+      <p class="checkout-description">Complete your order securely</p>
+    </div>
+  </section>
+
+  <!-- Checkout Content -->
+  <section class="checkout-content">
+    <div class="checkout-wrapper">
+      <!-- Left: Form -->
+      <div class="checkout-form-section">
+        <!-- Billing Information -->
+        <div class="checkout-section">
+          <h2 class="section-title">Billing Information</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name *</label>
+              <input
+                type="text"
+                [(ngModel)]="firstName"
+                placeholder="John"
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name *</label>
+              <input
+                type="text"
+                [(ngModel)]="lastName"
+                placeholder="Doe"
+                class="form-input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Email Address *</label>
+            <input
+              type="email"
+              [(ngModel)]="email"
+              placeholder="john@example.com"
+              class="form-input"
+            />
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Phone Number *</label>
+            <input
+              type="tel"
+              [(ngModel)]="phone"
+              placeholder="+1 (555) 000-0000"
+              class="form-input"
+            />
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label">Street Address *</label>
+            <input
+              type="text"
+              [(ngModel)]="address"
+              placeholder="123 Main St"
+              class="form-input"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">City *</label>
+              <input
+                type="text"
+                [(ngModel)]="city"
+                placeholder="New York"
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">State *</label>
+              <input
+                type="text"
+                [(ngModel)]="state"
+                placeholder="NY"
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">ZIP Code *</label>
+              <input
+                type="text"
+                [(ngModel)]="zipCode"
+                placeholder="10001"
+                class="form-input"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Information -->
+        <div class="checkout-section">
+          <h2 class="section-title">Payment Information</h2>
+
+          <div class="form-group full-width">
+            <label class="form-label">Card Number *</label>
+            <input
+              type="text"
+              [(ngModel)]="cardNumber"
+              placeholder="1234 5678 9012 3456"
+              class="form-input"
+              maxlength="19"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Expiry Date *</label>
+              <input
+                type="text"
+                [(ngModel)]="cardExpiry"
+                placeholder="MM/YY"
+                class="form-input"
+                maxlength="5"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">CVV *</label>
+              <input
+                type="text"
+                [(ngModel)]="cardCVV"
+                placeholder="123"
+                class="form-input"
+                maxlength="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Order Summary -->
+      <div class="checkout-summary-section">
+        <div class="order-summary">
+          <h2 class="summary-title">Order Summary</h2>
+
+          <!-- Order Items -->
+          <div class="summary-items">
+            @if (items.length === 0) {
+              <div class="empty-cart">
+                <p>Your cart is empty</p>
+                <a href="/shop" class="continue-shopping-link">
+                  Continue Shopping
+                </a>
+              </div>
+            } @else {
+              @for (item of items; track item.id) {
+                <div class="summary-item">
+                  <div class="item-info">
+                    <h3 class="item-name">{{ item.name }}</h3>
+                    <p class="item-qty">Qty: {{ item.quantity }}</p>
+                  </div>
+                  <p class="item-total">
+                    ${{ (item.price * item.quantity).toFixed(2) }}
+                  </p>
+                </div>
+              }
+            }
+          </div>
+
+          <!-- Pricing -->
+          <div class="summary-pricing">
+            <div class="pricing-row">
+              <span class="label">Subtotal</span>
+              <span class="value">${{ subtotal.toFixed(2) }}</span>
+            </div>
+            <div class="pricing-row">
+              <span class="label">Tax (10%)</span>
+              <span class="value">${{ tax.toFixed(2) }}</span>
+            </div>
+            <div class="pricing-row">
+              <span class="label">
+                Shipping
+                <span class="shipping-note">
+                  {{ shipping === 0 ? "(FREE)" : "" }}
+                </span>
+              </span>
+              <span class="value">${{ shipping.toFixed(2) }}</span>
+            </div>
+
+            <div class="pricing-divider"></div>
+
+            <div class="pricing-total">
+              <span class="label">Total</span>
+              <span class="value">${{ total.toFixed(2) }}</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="summary-actions">
+            <button
+              (click)="placeOrder()"
+              class="place-order-btn"
+              [disabled]="items.length === 0"
+            >
+              Place Order
+            </button>
+            <button
+              (click)="continueShopping()"
+              class="continue-shopping-btn"
+            >
+              Continue Shopping
+            </button>
+          </div>
+
+          <!-- Trust Badge -->
+          <div class="trust-badge">
+            <svg
+              class="lock-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 1C11.4477 1 11 1.44772 11 2V4H7C5.34315 4 4 5.34315 4 7V20C4 21.6569 5.34315 23 7 23H17C18.6569 23 20 21.6569 20 20V7C20 5.34315 18.6569 4 17 4H13V2C13 1.44772 12.5523 1 12 1ZM9 4V5C9 5.55228 9.44772 6 10 6H14C14.5523 6 15 5.55228 15 5V4H17C17.5523 4 18 4.44772 18 5V20C18 20.5523 17.5523 21 17 21H7C6.44772 21 6 20.5523 6 20V5C6 4.44772 6.44772 4 7 4H9Z"
+                fill="#b10a09"
+              />
+            </svg>
+            <p class="trust-text">Secure Checkout - Your data is encrypted</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
