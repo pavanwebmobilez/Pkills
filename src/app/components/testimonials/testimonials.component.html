@@ -1,30 +1,23 @@
-<section class="bg-background py-20">
-  <div class="container mx-auto px-8 lg:px-32">
+<section class="testimonials-section">
+  <div class="testimonials-container">
     <!-- Section Title -->
-    <div class="text-center mb-14">
-      <h2
-        class="text-4xl lg:text-5xl font-montserrat font-medium text-white leading-tight max-w-[634px] mx-auto"
-      >
+    <div class="testimonials-header">
+      <h2 class="testimonials-title">
         What our customers say about us.
       </h2>
     </div>
 
     <!-- Testimonials Carousel -->
-    <div class="relative mb-8">
+    <div class="testimonials-carousel">
       <!-- Testimonials Grid -->
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 transition-all duration-500 ease-in-out"
-      >
+      <div class="testimonials-grid">
         @for (testimonial of visibleTestimonials; track testimonial.id) {
           <div
-            [class]="
-              'p-5 rounded-[20px] bg-pkills-dark-gray flex flex-col gap-5 transition-all duration-300 ' +
-              (testimonial.featured ? 'border border-pkills-red' : '')
-            "
+            [class]="'testimonial-card ' + (testimonial.featured ? 'featured' : '')"
           >
             <!-- Quote Icon -->
             <svg
-              class="w-7 h-5 fill-[#E5E5E5]"
+              class="testimonial-quote-icon"
               viewBox="0 0 28 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -36,23 +29,19 @@
             </svg>
 
             <!-- Title -->
-            <h3
-              class="text-lg font-montserrat font-medium text-[#EDEDED] leading-relaxed"
-            >
+            <h3 class="testimonial-title">
               {{ testimonial.title }}
             </h3>
 
             <!-- Review Text -->
-            <p class="text-base font-montserrat text-[#EDEDED] leading-relaxed">
+            <p class="testimonial-review">
               {{ testimonial.review }}
             </p>
 
             <!-- Rating -->
-            <div
-              class="flex items-center gap-1 px-2 py-1 rounded-2xl border border-[#E5E5E5] w-fit"
-            >
+            <div class="testimonial-rating">
               <svg
-                class="w-4 h-4"
+                class="testimonial-star"
                 viewBox="0 0 16 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,26 +51,21 @@
                   fill="#AF0A09"
                 />
               </svg>
-              <span
-                class="text-base font-montserrat font-medium text-[#EDEDED]"
-                >{{ testimonial.rating }}</span
-              >
+              <span class="testimonial-rating-value">{{ testimonial.rating }}</span>
             </div>
 
             <!-- Customer Info -->
-            <div class="flex items-center gap-3">
+            <div class="testimonial-customer">
               <img
                 [src]="testimonial.avatar"
                 [alt]="testimonial.customerName"
-                class="w-12 h-12 rounded-full object-cover"
+                class="customer-avatar"
               />
-              <div class="flex flex-col">
-                <span
-                  class="text-lg font-montserrat font-medium text-[#EDEDED]"
-                >
+              <div class="customer-details">
+                <span class="customer-name">
                   {{ testimonial.customerName }}
                 </span>
-                <span class="text-sm font-montserrat text-[#C5C5C5]">
+                <span class="customer-role">
                   {{ testimonial.customerRole }}
                 </span>
               </div>
@@ -93,11 +77,11 @@
       <!-- Navigation Arrows (Hidden on mobile) -->
       <button
         (click)="previousSlide()"
-        class="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors group"
+        class="testimonials-nav-btn testimonials-nav-prev"
         aria-label="Previous testimonials"
       >
         <svg
-          class="w-6 h-6"
+          class="nav-arrow"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -114,11 +98,11 @@
 
       <button
         (click)="nextSlide()"
-        class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors group"
+        class="testimonials-nav-btn testimonials-nav-next"
         aria-label="Next testimonials"
       >
         <svg
-          class="w-6 h-6"
+          class="nav-arrow"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -135,30 +119,25 @@
     </div>
 
     <!-- Slider Dots -->
-    <div class="flex justify-center items-center gap-1.5">
+    <div class="testimonials-dots">
       @for (slide of slides; track slide) {
         <button
           (click)="goToSlide(slide)"
-          [class]="
-            'rounded-full transition-all duration-300 ' +
-            (currentSlide === slide
-              ? 'w-3 h-3 bg-pkills-red'
-              : 'w-2 h-2 bg-[#E5E5E5] hover:bg-pkills-yellow')
-          "
+          [class]="'dot ' + (currentSlide === slide ? 'active' : '')"
           [attr.aria-label]="'Go to slide ' + (slide + 1)"
         ></button>
       }
     </div>
 
     <!-- Mobile Navigation Buttons -->
-    <div class="flex lg:hidden justify-center gap-4 mt-8">
+    <div class="testimonials-mobile-nav">
       <button
         (click)="previousSlide()"
-        class="w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors"
+        class="mobile-nav-btn"
         aria-label="Previous testimonials"
       >
         <svg
-          class="w-6 h-6"
+          class="nav-arrow"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -175,11 +154,11 @@
 
       <button
         (click)="nextSlide()"
-        class="w-12 h-12 rounded-full bg-pkills-dark-gray border border-[#E5E5E5]/20 flex items-center justify-center hover:bg-pkills-red transition-colors"
+        class="mobile-nav-btn"
         aria-label="Next testimonials"
       >
         <svg
-          class="w-6 h-6"
+          class="nav-arrow"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
