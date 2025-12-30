@@ -1,26 +1,26 @@
 <!-- Backdrop -->
 <div
   *ngIf="isOpen()"
-  class="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4"
+  class="filters-backdrop"
   (click)="closeFilters()"
 >
   <!-- Popup Container -->
   <div
-    class="bg-white rounded-[20px] w-full max-w-[549px] p-6 relative"
+    class="filters-popup"
     (click)="$event.stopPropagation()"
   >
     <!-- Header -->
-    <div class="flex items-start justify-between mb-8">
-      <h2 class="text-[#161010] font-montserrat text-3xl font-bold">Filters</h2>
+    <div class="filters-header">
+      <h2 class="filters-title">Filters</h2>
 
       <!-- Close Button -->
       <button
         (click)="closeFilters()"
-        class="flex items-center justify-center w-6 h-6 hover:opacity-70 transition-opacity"
+        class="filters-close-btn"
         aria-label="Close"
       >
         <svg
-          class="w-6 h-6"
+          class="filters-close-icon"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,20 +36,20 @@
     </div>
 
     <!-- Filters Content -->
-    <div class="flex flex-col gap-6">
+    <div class="filters-content">
       <!-- Sort By -->
-      <div class="flex flex-col gap-3">
-        <h3 class="text-[#161010] font-montserrat text-xl font-bold">
+      <div class="filter-section">
+        <h3 class="filter-section-title">
           Sort By :
         </h3>
-        <div class="flex flex-wrap items-start gap-5">
+        <div class="filter-options">
           <button
             (click)="setSortBy('featured')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.sortBy === 'featured'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@
             </svg>
             <svg
               *ngIf="filters.sortBy !== 'featured'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -77,18 +77,16 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >Featured</span
-            >
+            <span class="filter-label">Featured</span>
           </button>
 
           <button
             (click)="setSortBy('lowToHigh')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.sortBy === 'lowToHigh'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +100,7 @@
             </svg>
             <svg
               *ngIf="filters.sortBy !== 'lowToHigh'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -116,18 +114,16 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >Low to high</span
-            >
+            <span class="filter-label">Low to high</span>
           </button>
 
           <button
             (click)="setSortBy('highToLow')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.sortBy === 'highToLow'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +137,7 @@
             </svg>
             <svg
               *ngIf="filters.sortBy !== 'highToLow'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -155,18 +151,16 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >High to low</span
-            >
+            <span class="filter-label">High to low</span>
           </button>
 
           <button
             (click)="setSortBy('all')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.sortBy === 'all'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +174,7 @@
             </svg>
             <svg
               *ngIf="filters.sortBy !== 'all'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -194,24 +188,22 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >All</span
-            >
+            <span class="filter-label">All</span>
           </button>
         </div>
       </div>
 
       <!-- Type -->
-      <div class="flex flex-col gap-3">
-        <h3 class="text-[#161010] font-montserrat text-xl font-bold">Type :</h3>
-        <div class="flex flex-wrap items-start gap-5">
+      <div class="filter-section">
+        <h3 class="filter-section-title">Type :</h3>
+        <div class="filter-options">
           <button
             (click)="setType('veg')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.type === 'veg'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -225,7 +217,7 @@
             </svg>
             <svg
               *ngIf="filters.type !== 'veg'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -239,18 +231,16 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >Veg</span
-            >
+            <span class="filter-label">Veg</span>
           </button>
 
           <button
             (click)="setType('nonVeg')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.type === 'nonVeg'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -264,7 +254,7 @@
             </svg>
             <svg
               *ngIf="filters.type !== 'nonVeg'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -278,18 +268,16 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >Non-veg</span
-            >
+            <span class="filter-label">Non-veg</span>
           </button>
 
           <button
             (click)="setType('all')"
-            class="flex items-center gap-1.5 cursor-pointer"
+            class="filter-option"
           >
             <svg
               *ngIf="filters.type === 'all'"
-              class="w-6 h-6"
+              class="filter-checkbox checked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -303,7 +291,7 @@
             </svg>
             <svg
               *ngIf="filters.type !== 'all'"
-              class="w-6 h-6"
+              class="filter-checkbox unchecked"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -317,30 +305,28 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="text-[#161010] font-montserrat text-[15px] font-medium"
-              >All</span
-            >
+            <span class="filter-label">All</span>
           </button>
         </div>
       </div>
 
       <!-- Spice Level -->
-      <div class="flex flex-col gap-3">
-        <h3 class="text-[#161010] font-montserrat text-xl font-bold">
+      <div class="filter-section">
+        <h3 class="filter-section-title">
           Spice Level :
         </h3>
-        <div class="flex flex-wrap items-start gap-5">
+        <div class="filter-options">
           @for (
             level of ["mild", "medium", "spicy", "extraSpicy", "all"];
             track level
           ) {
             <button
               (click)="setSpiceLevel(level)"
-              class="flex items-center gap-1.5 cursor-pointer"
+              class="filter-option"
             >
               <svg
                 *ngIf="filters.spiceLevel === level"
-                class="w-6 h-6"
+                class="filter-checkbox checked"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -354,7 +340,7 @@
               </svg>
               <svg
                 *ngIf="filters.spiceLevel !== level"
-                class="w-6 h-6"
+                class="filter-checkbox unchecked"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +355,7 @@
                 />
               </svg>
               <span
-                class="text-[#161010] font-montserrat text-[15px] font-medium"
+                class="filter-label"
               >
                 {{
                   level === "mild"
@@ -389,19 +375,19 @@
       </div>
 
       <!-- Weight -->
-      <div class="flex flex-col gap-3">
-        <h3 class="text-[#161010] font-montserrat text-xl font-bold">
+      <div class="filter-section">
+        <h3 class="filter-section-title">
           Weight :
         </h3>
-        <div class="flex flex-wrap items-start gap-5">
+        <div class="filter-options">
           @for (weight of ["1lb", "2lb", "3lb", "anySize"]; track weight) {
             <button
               (click)="setWeight(weight)"
-              class="flex items-center gap-1.5 cursor-pointer"
+              class="filter-option"
             >
               <svg
                 *ngIf="filters.weight === weight"
-                class="w-6 h-6"
+                class="filter-checkbox checked"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -415,7 +401,7 @@
               </svg>
               <svg
                 *ngIf="filters.weight !== weight"
-                class="w-6 h-6"
+                class="filter-checkbox unchecked"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -430,7 +416,7 @@
                 />
               </svg>
               <span
-                class="text-[#161010] font-montserrat text-[15px] font-medium"
+                class="filter-label"
               >
                 {{
                   weight === "1lb"
