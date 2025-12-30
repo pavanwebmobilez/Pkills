@@ -74,7 +74,11 @@
                     placeholder="Last Name"
                     required
                     class="contact-form-input"
+                    (blur)="markFieldAsTouched('lastName')"
                   />
+                  @if (fieldTouched.lastName && getLastNameError()) {
+                    <span class="contact-form-error">{{ getLastNameError() }}</span>
+                  }
                 </div>
               </div>
 
