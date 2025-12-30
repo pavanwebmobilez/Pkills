@@ -25,7 +25,45 @@ export class ContactUsComponent {
     description: "",
   };
 
+  // Track field touched state for error display
+  fieldTouched = {
+    firstName: false,
+    lastName: false,
+    email: false,
+    description: false,
+  };
+
   isSubmitting = false;
+
+  // Validation error messages
+  getFirstNameError(): string {
+    if (!this.formData.firstName) {
+      return "First name is required";
+    }
+    return "";
+  }
+
+  getLastNameError(): string {
+    if (!this.formData.lastName) {
+      return "Last name is required";
+    }
+    return "";
+  }
+
+  getEmailError(): string {
+    if (!this.formData.email) {
+      return "Email is required";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.formData.email)) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  }
+
+  markFieldAsTouched(fieldName: keyof typeof this.fieldTouched): void {
+    this.fieldTouched[fieldName] = true;
+  }
 
   onSubmit() {
     // Validation
