@@ -28,6 +28,7 @@ interface Product {
 export class ShopComponent {
   cartService = inject(CartService);
   filterService = inject(FilterService);
+  messageService = inject(MessageService);
 
   searchQuery = "";
 
